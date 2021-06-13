@@ -1,7 +1,8 @@
-import Button from 'components/Button';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import ProfileAvatarImg from 'assets/profile-avatar.png';
 import { Search, Bell, ChevronDown } from 'react-feather';
+import Button from 'components/Button';
 import Dropdown, { DropdownItem } from 'components/Dropdown';
 import FormInput from 'components/FormInput';
 
@@ -21,11 +22,13 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
     ];
   }, []);
 
-  const renderNavigationItem = (text: String) => {
+  const renderNavigationItem = (text: String, location: string) => {
     return (
-      <Button isGhost isRounded size="small">
-        {text}
-      </Button>
+      <Link to={location}>
+        <Button isGhost isRounded size="small">
+          {text}
+        </Button>
+      </Link>
     );
   };
 
@@ -48,16 +51,16 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   };
 
   return (
-    <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
-      <div className="flex-none px-2 mx-2">
+    <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box px-0">
+      <div className="flex-none mr-10">
         <span className="text-lg font-bold">Cryptonic</span>
       </div>
       <div className="flex-1 px-2 mx-2">
         <div className="items-stretch hidden lg:flex">
-          {renderNavigationItem('Dashboard')}
-          {renderNavigationItem('Exchange')}
-          {renderNavigationItem('Wallet')}
-          {renderNavigationItem('Market')}
+          {renderNavigationItem('Dashboard', '/')}
+          {renderNavigationItem('Exchange', '/exchange')}
+          {renderNavigationItem('Wallet', '/wallet')}
+          {renderNavigationItem('Market', '/market')}
         </div>
       </div>
       <div className="flex-1 lg:flex-none mx-2">

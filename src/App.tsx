@@ -1,13 +1,27 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainLayout from 'components/MainLayout';
+import Dashboard from 'pages/Dashboard';
+import Exchange from 'pages/Exchange';
+import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="bg-neutral">
-      <MainLayout />
-    </div>
+    <Router>
+      <div className="bg-neutral">
+        <MainLayout>
+          <Switch>
+            <Route path="/Exchange">
+              <Exchange />
+            </Route>
+            <Route path="/">
+              <Dashboard />
+            </Route>
+          </Switch>
+        </MainLayout>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
