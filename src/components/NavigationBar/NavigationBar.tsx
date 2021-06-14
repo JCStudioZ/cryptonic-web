@@ -35,14 +35,14 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   const renderProfileDropDown = () => {
     return (
       <Dropdown items={profileDropdownItems} trigger="hover">
-        <Button isRounded>
+        <Button isRounded className="px-0">
           <div className="flex items-center px-2">John Doe</div>
           <div className="avatar">
             <div className="rounded-full w-10 h-10 m-1">
               <img width="40" height="40" src={ProfileAvatarImg} />
             </div>
           </div>
-          <div className="flex items-center px-2">
+          <div className="flex items-center pl-2">
             <ChevronDown size="22" />
           </div>
         </Button>

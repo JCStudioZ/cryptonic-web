@@ -31,7 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', 
 
   return (
     <div className={dropdownClass}>
-      <div className="m-1 btn">{children}</div>
+      {children}
       <ul className="shadow menu dropdown-content bg-base-100 rounded-box w-52">{renderDropdownItems()}</ul>
     </div>
   );
