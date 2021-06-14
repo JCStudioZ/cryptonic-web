@@ -8,7 +8,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="bg-neutral">
+      <div className="bg-base-300">
         <MainLayout>
           <Switch>
             <Route path="/Exchange">

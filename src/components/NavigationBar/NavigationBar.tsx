@@ -25,7 +25,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   const renderNavigationItem = (text: String, location: string) => {
     return (
       <Link to={location}>
-        <Button isGhost isRounded size="small">
+        <Button isGhost isRounded className="text-base">
           {text}
         </Button>
       </Link>
@@ -35,7 +35,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   const renderProfileDropDown = () => {
     return (
       <Dropdown items={profileDropdownItems} trigger="hover">
-        <Button isRounded className="px-0">
+        <Button isRounded isGhost className="px-0">
           <div className="flex items-center px-2">John Doe</div>
           <div className="avatar">
             <div className="rounded-full w-10 h-10 m-1">
@@ -51,7 +51,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   };
 
   return (
-    <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box px-0">
+    <div className="navbar mb-11">
       <div className="flex-none mr-10">
         <span className="text-lg font-bold">Cryptonic</span>
       </div>

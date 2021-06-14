@@ -24,8 +24,12 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', 
   });
 
   const renderDropdownItems = () => {
-    return items.map((item) => {
-      return <li onClick={item.onClick}>{item.title}</li>;
+    return items.map((item, index) => {
+      return (
+        <li key={index} onClick={item.onClick}>
+          {item.title}
+        </li>
+      );
     });
   };
 

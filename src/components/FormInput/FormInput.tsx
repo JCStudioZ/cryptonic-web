@@ -42,7 +42,7 @@ const FormInput: React.FC<FormInputProps> = ({
     <div className={cn('form-control', containerClassName)}>
       {label && (
         <label className="label">
-          <span className="label-text">Username</span>
+          <span className="label-text">{label}</span>
         </label>
       )}
       <input className={cn(inputClass, inputClassName)} {...rest} />
