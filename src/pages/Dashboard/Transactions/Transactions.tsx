@@ -2,6 +2,7 @@ import Card from 'components/Card';
 import FormSelect from 'components/FormSelect';
 import Section from 'components/Section';
 import * as React from 'react';
+import { ArrowUp } from 'react-feather';
 
 type TransactionsProps = {};
 
@@ -29,7 +30,92 @@ const Transactions: React.FC<TransactionsProps> = () => {
           <FormSelect value="all" data={transactionFilterData} isGhost isBordered selectSize="small" />
         }
       >
-        <div></div>
+        <div className="overflow-y-auto max-h-[226px]">
+          <table className="table table-compact w-full mt-4">
+            <tbody>
+              <tr>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <img src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} width="32px" />
+                    <div className="text-base">BTC</div>
+                  </div>
+                </td>
+                <td className="text-center">
+                  <span className="text-base text-base-content text-opacity-60">
+                    Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
+                  </span>
+                </td>
+                <td className="text-right">
+                  <span className="font-bold text-base">$35,201,133</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <img src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} width="32px" />
+                    <div className="text-base">BTC</div>
+                  </div>
+                </td>
+                <td className="text-center">
+                  <span className="text-base text-base-content text-opacity-60">
+                    Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
+                  </span>
+                </td>
+                <td className="text-right">
+                  <span className="font-bold text-base">$35,201,133</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <img src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} width="32px" />
+                    <div className="text-base">BTC</div>
+                  </div>
+                </td>
+                <td className="text-center">
+                  <span className="text-base text-base-content text-opacity-60">
+                    Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
+                  </span>
+                </td>
+                <td className="text-right">
+                  <span className="font-bold text-base">$35,201,133</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <img src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} width="32px" />
+                    <div className="text-base">BTC</div>
+                  </div>
+                </td>
+                <td className="text-center">
+                  <span className="text-base text-base-content text-opacity-60">
+                    Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
+                  </span>
+                </td>
+                <td className="text-right">
+                  <span className="font-bold text-base">$35,201,133</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <img src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} width="32px" />
+                    <div className="text-base">BTC</div>
+                  </div>
+                </td>
+                <td className="text-center">
+                  <span className="text-base text-base-content text-opacity-60">
+                    Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
+                  </span>
+                </td>
+                <td className="text-right">
+                  <span className="font-bold text-base">$35,201,133</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </Section>
     </Card>
   );

@@ -26,10 +26,10 @@ const WalletSummary: React.FC<WalletSummaryProps> = () => {
     <Section titleText="Wallet" titleRightElement={<p className="text-base-content text-opacity-60">3 Currentcies</p>}>
       <div className="flex mt-8">
         <div className="flex flex-1 justify-between">
-          <div className="w-1/2 pr-5">
+          <div className="w-1/2 xl:pr-5 md:pr-2 md:w-1/3">
             <WalletChart data={data} />
           </div>
-          <div className="w-1/2 pl-6">
+          <div className="w-1/2 xl:pl-6 md:pl-2 md:w-2/3">
             <WalletCoinItem
               title="BTC"
               subTitle="Bitcoin"
