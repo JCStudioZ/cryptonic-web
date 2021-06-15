@@ -28,14 +28,14 @@ const Dashboard: React.FC<DashboardProps> = () => {
           <Transactions />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-6">
-        <div className="mt-6 mb-6 md:mb-0">
-          <Card isCompact className="h-full">
-            <ExchangeForm />
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 md:gap-6">
+        <Card isCompact className="mt-6 mb-6 h-full md:h-96 md:mb-0 md:col-span-2 lg:col-span-2 xl:col-span-1">
+          <ExchangeForm />
+        </Card>
+        <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 md:mt-6">
+          <Card title="Trading View" isCompact className="h-full">
+            <div className="mt-6" id="tradingview_33af2"></div>
           </Card>
-        </div>
-        <div className="md:col-span-3 md:mt-6">
-          <div id="tradingview_33af2"></div>
         </div>
       </div>
       <Helmet>
@@ -43,7 +43,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             new TradingView.widget(
               {
               "width": "100%",
-              "height": 413,
+              "height": "100%",
               "symbol": "NASDAQ:AAPL",
               "interval": "D",
               "timezone": "Etc/UTC",

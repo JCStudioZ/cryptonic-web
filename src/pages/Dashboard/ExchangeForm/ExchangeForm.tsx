@@ -7,11 +7,11 @@ import Button from 'components/Button';
 type ExchangeFormProps = {};
 
 const ExchangeForm: React.FC<ExchangeFormProps> = () => {
-  const renderCoinDropdown = () => {
+  const renderCoinDropdown = (coin: string) => {
     return (
       <Button isRounded isGhost className="px-0 btn-addon-right">
         <div className="flex px-2">
-          <img width="20" height="20" src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} />
+          <img width="20" height="20" src={`https://cryptologos.cc/logos/${coin}-logo.svg`} />
           <div className="flex items-center pl-2">
             <ChevronDown size="22" />
           </div>
@@ -43,8 +43,14 @@ const ExchangeForm: React.FC<ExchangeFormProps> = () => {
         </div>
       </div>
       <div className="mt-4">
-        <FormInput isBordered label="Get" containerClassName="mb-3" addonElement={renderCoinDropdown()} />
-        <FormInput isBordered label="Pay" addonElement={renderCoinDropdown()} />
+        <FormInput
+          isBordered
+          label="Get"
+          containerClassName="mb-3"
+          addonElement={renderCoinDropdown('bitcoin-btc')}
+          placeholder="Amount (BTC)"
+        />
+        <FormInput isBordered label="Pay" addonElement={renderCoinDropdown('tether-usdt')} placeholder="Total (USD)" />
         <Button variant="primary" isBlock className="mt-6">
           Exchange
         </Button>

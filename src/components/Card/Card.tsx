@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 type CardProps = {
   headerImageUrl?: string;
-  title?: React.ReactElement;
+  title?: React.ReactElement | string;
   footer?: React.ReactElement;
   isBordered?: boolean;
   isCompact?: boolean;
