@@ -10,16 +10,16 @@ type WalletCoinItemProps = {
 
 const WalletCoinItem: React.FC<WalletCoinItemProps> = ({ imageUrl, percentage, subTitle, title }) => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mb-2">
       <div className="flex items-start">
         <img src={imageUrl} width="16px" className="mt-1 mr-2" />
-        <div>
-          <p className="text-base-content text-base font-bold">{title}</p>
-          <p className="text-base text-base-content text-opacity-60">{subTitle}</p>
+        <div className="truncate">
+          <p className="text-base-content text-base font-bold truncate">{title}</p>
+          <p className="text-base text-base-content-secondary truncate">{subTitle}</p>
         </div>
       </div>
       <div>
-        <p className="text-sm font-bold">
+        <p className="text-sm font-bold text-right">
           {percentage > 0 ? (
             <span className="text-success">
               <ArrowUp className="inline-block align-text-bottom" size="18" /> {percentage}%

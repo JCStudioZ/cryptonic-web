@@ -15,7 +15,11 @@ type WalletChartProps = {
 };
 
 const WalletChart: React.FC<WalletChartProps> = ({ data }) => {
-  return <Doughnut type="doughnut" data={data} options={chartOptions} />;
+  return (
+    <div className="w-[50%] md:w-[90%] xl:w-[70%]">
+      <Doughnut type="doughnut" data={data} options={chartOptions} />
+    </div>
+  );
 };
 
 export default WalletChart;

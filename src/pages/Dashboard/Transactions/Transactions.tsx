@@ -23,14 +23,14 @@ const transactionFilterData = [
 
 const Transactions: React.FC<TransactionsProps> = () => {
   return (
-    <Card isCompact>
+    <Card isCompact className="h-full">
       <Section
         titleText="Transaction"
         titleRightElement={
           <FormSelect value="all" data={transactionFilterData} isGhost isBordered selectSize="small" />
         }
       >
-        <div className="overflow-y-auto max-h-[226px]">
+        <div className="overflow-y-auto h-[80%]">
           <table className="table table-compact w-full mt-4">
             <tbody>
               <tr>
@@ -41,7 +41,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <span className="text-base text-base-content text-opacity-60">
+                  <span className="text-base text-base-content-secondary">
                     Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
                   </span>
                 </td>
@@ -57,7 +57,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <span className="text-base text-base-content text-opacity-60">
+                  <span className="text-base text-base-content-secondary">
                     Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
                   </span>
                 </td>
@@ -73,7 +73,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <span className="text-base text-base-content text-opacity-60">
+                  <span className="text-base text-base-content-secondary">
                     Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
                   </span>
                 </td>
@@ -89,7 +89,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <span className="text-base text-base-content text-opacity-60">
+                  <span className="text-base text-base-content-secondary">
                     Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
                   </span>
                 </td>
@@ -105,7 +105,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
                   </div>
                 </td>
                 <td className="text-center">
-                  <span className="text-base text-base-content text-opacity-60">
+                  <span className="text-base text-base-content-secondary">
                     Sent <ArrowUp className="text-error inline-block align-text-bottom" size="18" />
                   </span>
                 </td>

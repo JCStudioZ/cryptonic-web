@@ -36,7 +36,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
     return (
       <Dropdown items={profileDropdownItems} trigger="hover">
         <Button isRounded isGhost className="px-0">
-          <div className="flex items-center px-2">John Doe</div>
+          <div className="hidden md:flex items-center px-2">John Doe</div>
           <div className="avatar">
             <div className="rounded-full w-10 h-10 m-1">
               <img width="40" height="40" src={ProfileAvatarImg} />
@@ -51,8 +51,8 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   };
 
   return (
-    <div className="navbar mb-11">
-      <div className="flex-none mr-10">
+    <div className="navbar mb-6 md:mb-11">
+      <div className="flex-none xl:mr-10 md:mr-0">
         <span className="text-lg font-bold">Cryptonic</span>
       </div>
       <div className="flex-1 px-2 mx-2">
@@ -63,7 +63,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
           {renderNavigationItem('Market', '/market')}
         </div>
       </div>
-      <div className="flex-1 lg:flex-none mx-2">
+      <div className="hidden md:flex md:flex-1 lg:flex-none mx-2">
         <FormInput type="text" placeholder="Search" />
       </div>
       <div className="flex-none">

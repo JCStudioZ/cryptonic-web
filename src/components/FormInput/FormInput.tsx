@@ -8,7 +8,7 @@ type FormInputProps = {
   isBordered?: boolean;
   isGhost?: boolean;
   containerClassName?: String;
-  inputClassName?: String;
+  addonElement?: React.ReactElement;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -18,7 +18,8 @@ const FormInput: React.FC<FormInputProps> = ({
   isBordered,
   isGhost,
   containerClassName,
-  inputClassName,
+  addonElement,
+  className,
   ...rest
 }) => {
   const inputClass = cn({
@@ -36,16 +37,31 @@ const FormInput: React.FC<FormInputProps> = ({
     'input-xs': size == 'extra-small',
     'input-ghost': isGhost,
     'input-bordered': isBordered,
+    'w-full': addonElement !== undefined,
   });
+
+  const renderInput = () => {
+    const inputElement = <input className={cn(inputClass, className)} {...rest} />;
+    if (!addonElement) {
+      return inputElement;
+    }
+
+    return (
+      <div className="relative">
+        {inputElement}
+        {addonElement && addonElement}
+      </div>
+    );
+  };
 
   return (
     <div className={cn('form-control', containerClassName)}>
       {label && (
         <label className="label">
-          <span className="label-text">{label}</span>
+          <span className="label-text text-base text-base-content-secondary">{label}</span>
         </label>
       )}
-      <input className={cn(inputClass, inputClassName)} {...rest} />
+      {renderInput()}
     </div>
   );
 };

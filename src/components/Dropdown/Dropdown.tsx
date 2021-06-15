@@ -9,10 +9,11 @@ export interface DropdownItem {
 type DropdownProps = {
   items: DropdownItem[];
   position?: 'end' | 'top' | 'left' | 'right';
-  trigger?: 'open' | 'hover';
+  trigger?: 'click' | 'hover';
+  isOpened?: boolean;
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', trigger }) => {
+const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', trigger, isOpened }) => {
   const dropdownClass = cn({
     dropdown: true,
     'dropdown-end': position === 'end',
@@ -20,7 +21,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', 
     'dropdown-left': position === 'left',
     'dropdown-right': position === 'right',
     'dropdown-hover': trigger === 'hover',
-    'dropdown-open': trigger === 'open',
+    'dropdown-open': trigger === isOpened,
   });
 
   const renderDropdownItems = () => {

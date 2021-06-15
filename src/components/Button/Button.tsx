@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   isBlock,
   isCircle,
   isSquare,
-  isRounded = true,
+  isRounded,
   isActive,
   isDisabled,
   isLoading,
