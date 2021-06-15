@@ -1,10 +1,11 @@
 import Card from 'components/Card';
 import * as React from 'react';
-import Helmet from 'react-helmet';
 import BalanceSummary from './BalanceSummary';
 import ExchangeForm from './ExchangeForm';
 import Transactions from './Transactions';
 import WalletSummary from './WalletSummary';
+import TradingViewChart from './TradingViewChart';
+import PopularCoinCarousel from './PopularCoinCarousel';
 
 type DashboardProps = {};
 
@@ -34,30 +35,13 @@ const Dashboard: React.FC<DashboardProps> = () => {
         </Card>
         <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 md:mt-6">
           <Card title="Trading View" isCompact className="h-full">
-            <div className="mt-6" id="tradingview_33af2"></div>
+            <TradingViewChart />
           </Card>
         </div>
       </div>
-      <Helmet>
-        <script type="text/javascript">{`
-            new TradingView.widget(
-              {
-              "width": "100%",
-              "height": "100%",
-              "symbol": "NASDAQ:AAPL",
-              "interval": "D",
-              "timezone": "Etc/UTC",
-              "theme": "dark",
-              "style": "1",
-              "locale": "en",
-              "toolbar_bg": "#f1f3f6",
-              "enable_publishing": false,
-              "allow_symbol_change": true,
-              "container_id": "tradingview_33af2"
-            }
-              );
-        `}</script>
-      </Helmet>
+      <div>
+        <PopularCoinCarousel />
+      </div>
     </>
   );
 };
