@@ -10,9 +10,19 @@ type TableProps = {
   containerClassName?: string;
   isZebraStyle?: boolean;
   isCompact?: boolean;
+  isFullWidth?: boolean;
+  showHeader?: boolean;
 };
 
-const Table: React.FC<TableProps> = ({ columns, data, containerClassName, isZebraStyle, isCompact }) => {
+const Table: React.FC<TableProps> = ({
+  columns,
+  data,
+  containerClassName,
+  isZebraStyle,
+  isCompact,
+  isFullWidth,
+  showHeader = true,
+}) => {
   const { getTableBodyProps, getTableProps, headerGroups, prepareRow, rows } = useTable(
     {
       columns,
@@ -25,12 +35,13 @@ const Table: React.FC<TableProps> = ({ columns, data, containerClassName, isZebr
     table: true,
     'table-zebra': isZebraStyle,
     'table-compact': isCompact,
+    'w-full': isFullWidth,
   });
 
   return (
     <div className={containerClassName}>
       <table className={tableClass} {...getTableProps()}>
-        <TableHead headerGroups={headerGroups} />
+        {showHeader && <TableHead headerGroups={headerGroups} />}
         <TableBody page={rows} getTableBodyProps={getTableBodyProps} prepareRow={prepareRow} />
       </table>
     </div>
