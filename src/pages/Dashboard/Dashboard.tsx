@@ -29,17 +29,17 @@ const Dashboard: React.FC<DashboardProps> = () => {
           <Transactions />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 md:gap-6">
-        <Card isCompact className="mt-6 mb-6 h-full md:h-96 md:mb-0 md:col-span-2 lg:col-span-2 xl:col-span-1">
+      <div className="grid grid-cols-1 mt-6 md:grid-cols-4 lg:grid-cols-5 md:gap-6">
+        <Card isCompact className="mb-6 h-full md:h-96 md:mb-0 md:col-span-2 lg:col-span-2 xl:col-span-1">
           <ExchangeForm />
         </Card>
-        <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 md:mt-6">
+        <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 mt-6 md:mt-0">
           <Card title="Trading View" isCompact className="h-full">
             <TradingViewChart />
           </Card>
         </div>
       </div>
-      <div>
+      <div className="mt-6">
         <PopularCoinCarousel />
       </div>
     </>

@@ -1,0 +1,39 @@
+.slick-arrow {
+  z-index: 1;
+  width: 30px;
+  display: none;
+  &:before {
+    font-size: 30px;
+  }
+  &.slick-prev {
+    left: 15px;
+  }
+  &.slick-next {
+    right: 30px;
+  }
+}
+
+.slick-dots {
+  li {
+    &.slick-active {
+      button:before {
+        color: #{theme('colors.primary')}
+      }
+    }
+    button:before {
+      color: #{theme('colors[base-content]')}
+    }
+  }
+}
+
+.text-base-content-secondary {
+  @apply text-base-content text-opacity-60;
+}
+
+.divide-base-content-secondary {
+  @apply divide-base-content divide-opacity-20
+}
+
+.btn-addon-right {
+  @apply absolute right-0 top-0 rounded-l-none
+}

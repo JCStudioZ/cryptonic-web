@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainLayout from 'components/MainLayout';
 import Dashboard from 'pages/Dashboard';
 import Exchange from 'pages/Exchange';
-import './App.css';
+import './App.scss';
 
 const App: React.FC = () => {
   return (
