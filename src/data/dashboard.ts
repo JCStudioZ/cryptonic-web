@@ -1,9 +1,7 @@
 import * as faker from 'faker';
-import { Balance } from 'types';
+import { Balance, WalletCoin } from 'types';
 
-export type FetchBalanceResponse = Balance;
-
-export const fetchBalance = (): Promise<FetchBalanceResponse> => {
+export const fetchBalance = (): Promise<Balance> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -24,6 +22,39 @@ export const fetchBalance = (): Promise<FetchBalanceResponse> => {
           max: 80,
         }),
       });
-    }, 1000);
+    }, 200);
+  });
+};
+
+export const fetchWalletSummary = (): Promise<WalletCoin[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([
+        {
+          coin: {
+            code: 'btc',
+            imageName: 'bitcoin-btc',
+            name: 'Bitcoin',
+          },
+          percentage: 10,
+        },
+        {
+          coin: {
+            code: 'eth',
+            imageName: 'ethereum-eth',
+            name: 'Ethereum',
+          },
+          percentage: 27,
+        },
+        {
+          coin: {
+            code: 'eth',
+            imageName: 'ethereumeth',
+            name: 'Ethereum',
+          },
+          percentage: -15,
+        },
+      ]);
+    }, 200);
   });
 };

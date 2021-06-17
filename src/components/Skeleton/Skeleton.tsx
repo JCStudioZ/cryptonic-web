@@ -50,6 +50,3 @@ const Skeleton: React.FC<SkeletonProps> = ({ isLoading, children, ...rest }) => 
 };
 
 export default Skeleton;
-function useSpring(arg0: { to: { opacity: number }; from: { opacity: number } }) {
-  throw new Error('Function not implemented.');
-}
