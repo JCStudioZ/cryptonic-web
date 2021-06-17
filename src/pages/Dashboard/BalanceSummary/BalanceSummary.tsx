@@ -9,12 +9,16 @@ type BalanceSummaryProps = {};
 
 const BalanceSummary: React.FC<BalanceSummaryProps> = () => {
   const { data, isLoading } = useQueryBalance();
-  const percentage = data?.percentage || 0;
+  const percentage = data?.percentage;
   const balance = data?.balance || 0;
   const income = data?.income || 0;
   const expenses = data?.expenses || 0;
 
   const renderBalancePercentage = () => {
+    if (!percentage) {
+      return;
+    }
+
     return (
       <p className="text-success text-base font-bold">
         <ArrowUp className="inline-block align-text-bottom" size="22" /> {percentage}%

@@ -1,7 +1,7 @@
 import * as faker from 'faker';
 import { Balance } from 'types';
 
-export type FetchBalanceResponse = Balance | null;
+export type FetchBalanceResponse = Balance;
 
 export const fetchBalance = (): Promise<FetchBalanceResponse> => {
   return new Promise((resolve) => {
