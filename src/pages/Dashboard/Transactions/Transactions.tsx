@@ -35,7 +35,6 @@ const Transactions: React.FC<TransactionsProps> = () => {
       {
         accessor: 'coin',
         Cell: ({ row }) => {
-          console.log('🚀 ~ file: Transactions.tsx ~ line 67 ~ row', row);
           return (
             <div className="flex items-center space-x-3">
               <img className="w-5 h-5" src={getCryptoLogoImageURL(row.original.coin.imageName)} />

@@ -3,12 +3,14 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CoinCarouselItem from './CoinCarouselItem';
+import { useQueryPopularCoins } from 'hooks/queries';
+import { getCryptoLogoImageURL } from 'utils';
 
 type PopularCoinCarouselProps = {};
 
 const settings = {
   dots: true,
-  infinite: false,
+  infinite: true,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 2,
@@ -42,14 +44,25 @@ const settings = {
 };
 
 const PopularCoinCarousel: React.FC<PopularCoinCarouselProps> = () => {
+  const { data = [] } = useQueryPopularCoins();
+
   return (
     <div className="pb-8">
       <Slider {...settings}>
-        <CoinCarouselItem />
-        <CoinCarouselItem />
-        <CoinCarouselItem />
-        <CoinCarouselItem />
-        <CoinCarouselItem />
+        {data.map((coinInfo) => {
+          const { chartData, coin, percentage } = coinInfo;
+          return (
+            <CoinCarouselItem
+              key={coin.code}
+              chartData={chartData}
+              coinImageURL={getCryptoLogoImageURL(coin.imageName)}
+              coinCode={coin.code}
+              coinName={coin.name}
+              percentage={percentage}
+              price={coin.price}
+            />
+          );
+        })}
       </Slider>
     </div>
   );

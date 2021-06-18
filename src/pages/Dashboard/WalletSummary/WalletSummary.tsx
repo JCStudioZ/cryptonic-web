@@ -25,9 +25,10 @@ const WalletSummary: React.FC<WalletSummaryProps> = () => {
           </div>
           {walletCoinInfoList.length && (
             <div className="w-full lg:w-1/2 xl:pl-6 md:pl-2 md:w-2/3">
-              {walletCoinInfoList.map((walletInfo) => {
+              {walletCoinInfoList.map((walletInfo, index) => {
                 return (
                   <WalletCoinItem
+                    key={index}
                     title={walletInfo.coin.name}
                     subTitle={walletInfo.coin.code}
                     imageUrl={getCryptoLogoImageURL(walletInfo.coin.imageName)}

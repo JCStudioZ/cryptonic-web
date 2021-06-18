@@ -9,6 +9,13 @@ export interface Coin {
   code: string;
   name: string;
   imageName: string;
+  price: number;
+}
+
+export interface PopularCoinInfo {
+  coin: Coin;
+  chartData: any;
+  percentage: number;
 }
 
 export interface WalletCoinInfo {

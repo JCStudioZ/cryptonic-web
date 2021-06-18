@@ -3,21 +3,15 @@ import Card from 'components/Card';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
 import { ArrowUp } from 'react-feather';
+import { formatCurrency } from 'utils';
 
-type CoinCarouselItemProps = {};
-
-const data = {
-  labels: ['1', '2', '3', '4', '5', '6'],
-  datasets: [
-    {
-      data: [12, 19, 3, 5, 2, 3],
-      fill: true,
-      backgroundColor: '#ff638424',
-      borderColor: 'rgb(255, 99, 132)',
-      cubicInterpolationMode: 'monotone',
-      tension: 0.4,
-    },
-  ],
+type CoinCarouselItemProps = {
+  chartData: any;
+  coinName: string;
+  coinCode: string;
+  coinImageURL: string;
+  price: number;
+  percentage: number;
 };
 
 const options: ChartOptions = {
@@ -37,26 +31,33 @@ const options: ChartOptions = {
   },
 };
 
-const CoinCarouselItem: React.FC<CoinCarouselItemProps> = () => {
+const CoinCarouselItem: React.FC<CoinCarouselItemProps> = ({
+  coinCode,
+  chartData,
+  coinName,
+  percentage,
+  coinImageURL,
+  price,
+}) => {
   return (
     <Card isCompact className="mr-3">
       <div className="flex flex-col flex-grow">
         <div className="flex justify-between">
-          <img className="w-10" src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} />
+          <img className="w-10" src={coinImageURL} />
           <div className="w-3/5">
-            <Line type="line" data={data} options={options} />
+            <Line type="line" data={chartData} options={options} />
           </div>
         </div>
         <div className="flex justify-between mt-3 items-center">
-          <p className="text-base-content-secondary">Bitcoin</p>
+          <p className="text-base-content-secondary">{coinName}</p>
           <p className="text-base font-bold">
             <ArrowUp className="inline-block align-text-bottom text-success" size="22" />
-            2.11%
+            {percentage}%
           </p>
         </div>
         <div className="flex justify-between mt-3 items-center">
-          <p className="text-xl font-bold">USD 53,260.20</p>
-          <p className="text-base-content-secondary">BTC</p>
+          <p className="text-xl font-bold">{formatCurrency(price)}</p>
+          <p className="text-base-content-secondary">{coinCode}</p>
         </div>
       </div>
     </Card>
