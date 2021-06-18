@@ -28,7 +28,7 @@ const transactionFilterData = [
 ];
 
 const Transactions: React.FC<TransactionsProps> = () => {
-  const { data = [] } = useQueryTransactions();
+  const { data } = useQueryTransactions();
 
   const columns: Column<Transaction>[] = React.useMemo(
     () => [

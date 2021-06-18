@@ -10,11 +10,20 @@ type PopularCoinCarouselProps = {};
 
 const settings = {
   dots: true,
-  infinite: true,
+  infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 5,
   slidesToScroll: 2,
   responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+        dots: true,
+      },
+    },
     {
       breakpoint: 1024,
       settings: {
@@ -44,7 +53,11 @@ const settings = {
 };
 
 const PopularCoinCarousel: React.FC<PopularCoinCarouselProps> = () => {
-  const { data = [] } = useQueryPopularCoins();
+  const { data } = useQueryPopularCoins();
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <div className="pb-8">

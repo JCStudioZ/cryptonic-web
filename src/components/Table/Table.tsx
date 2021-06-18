@@ -6,7 +6,7 @@ import TableHead from './TableHead/TableHead';
 
 type TableProps = {
   columns: Column<any>[];
-  data: object[];
+  data?: object[];
   containerClassName?: string;
   isZebraStyle?: boolean;
   isCompact?: boolean;
@@ -16,7 +16,7 @@ type TableProps = {
 
 const Table: React.FC<TableProps> = ({
   columns,
-  data,
+  data = [],
   containerClassName,
   isZebraStyle,
   isCompact,
@@ -26,7 +26,7 @@ const Table: React.FC<TableProps> = ({
   const { getTableBodyProps, getTableProps, headerGroups, prepareRow, rows } = useTable(
     {
       columns,
-      data,
+      data: data,
     },
     usePagination,
   );

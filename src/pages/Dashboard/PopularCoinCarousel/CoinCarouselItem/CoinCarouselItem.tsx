@@ -2,7 +2,7 @@ import { ChartOptions } from 'chart.js';
 import Card from 'components/Card';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
-import { ArrowUp } from 'react-feather';
+import { ArrowUp, ArrowDown } from 'react-feather';
 import { formatCurrency } from 'utils';
 
 type CoinCarouselItemProps = {
@@ -42,17 +42,21 @@ const CoinCarouselItem: React.FC<CoinCarouselItemProps> = ({
   return (
     <Card isCompact className="mr-3">
       <div className="flex flex-col flex-grow">
-        <div className="flex justify-between">
-          <img className="w-10" src={coinImageURL} />
-          <div className="w-3/5">
-            <Line type="line" data={chartData} options={options} />
+        <div className="flex justify-between items-center">
+          <img className="w-8 h-8 md:w-10 md:h-10" src={coinImageURL} />
+          <div className="w-1/2">
+            <Line className="!h-10" type="line" data={chartData} options={options} />
           </div>
         </div>
         <div className="flex justify-between mt-3 items-center">
           <p className="text-base-content-secondary">{coinName}</p>
           <p className="text-base font-bold">
-            <ArrowUp className="inline-block align-text-bottom text-success" size="22" />
-            {percentage}%
+            {percentage < 0 ? (
+              <ArrowDown className="inline-block align-text-bottom text-error" size="22" />
+            ) : (
+              <ArrowUp className="inline-block align-text-bottom text-success" size="22" />
+            )}
+            {Math.abs(percentage)}%
           </p>
         </div>
         <div className="flex justify-between mt-3 items-center">

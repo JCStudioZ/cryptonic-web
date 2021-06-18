@@ -2,7 +2,7 @@ import * as faker from 'faker';
 import { Balance, Coin, PopularCoinInfo, Transaction, Wallet } from 'types';
 
 const btc: Coin = {
-  code: 'btc',
+  code: 'BTC',
   imageName: 'bitcoin-btc-logo',
   name: 'Bitcoin',
   price: faker.datatype.number({
@@ -12,7 +12,7 @@ const btc: Coin = {
 };
 
 const ltc: Coin = {
-  code: 'ltc',
+  code: 'LTC',
   imageName: 'litecoin-ltc-logo',
   name: 'Litecoin',
   price: faker.datatype.number({
@@ -22,22 +22,42 @@ const ltc: Coin = {
 };
 
 const eth: Coin = {
-  code: 'eth',
+  code: 'ETH',
   imageName: 'ethereum-eth-logo',
   name: 'Ethereum',
   price: faker.datatype.number({
-    min: 500,
-    max: 2000,
+    min: 10000,
+    max: 60000,
   }),
 };
 
 const ada: Coin = {
-  code: 'ada',
+  code: 'ADA',
   imageName: 'cardano-ada-logo',
   name: 'Cardano',
   price: faker.datatype.number({
-    min: 0.2,
-    max: 2,
+    min: 10000,
+    max: 60000,
+  }),
+};
+
+const monero: Coin = {
+  code: 'ADA',
+  imageName: 'monero-xmr-logo',
+  name: 'Monero',
+  price: faker.datatype.number({
+    min: 10000,
+    max: 60000,
+  }),
+};
+
+const pancakeswap: Coin = {
+  code: 'CAKE',
+  imageName: 'pancakeswap-cake-logo',
+  name: 'PancakeSwap',
+  price: faker.datatype.number({
+    min: 10000,
+    max: 60000,
   }),
 };
 
@@ -147,7 +167,10 @@ export const fetchPopularCoinList = (): Promise<PopularCoinInfo[]> => {
       resolve([
         {
           coin: btc,
-          percentage: 20,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
           chartData: {
             labels: ['1', '2', '3', '4', '5', '6'],
             datasets: [
@@ -164,7 +187,10 @@ export const fetchPopularCoinList = (): Promise<PopularCoinInfo[]> => {
         },
         {
           coin: eth,
-          percentage: 20,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
           chartData: {
             labels: ['1', '2', '3', '4', '5', '6'],
             datasets: [
@@ -181,7 +207,10 @@ export const fetchPopularCoinList = (): Promise<PopularCoinInfo[]> => {
         },
         {
           coin: ltc,
-          percentage: 20,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
           chartData: {
             labels: ['1', '2', '3', '4', '5', '6'],
             datasets: [
@@ -198,12 +227,55 @@ export const fetchPopularCoinList = (): Promise<PopularCoinInfo[]> => {
         },
         {
           coin: ada,
-          percentage: 20,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
           chartData: {
             labels: ['1', '2', '3', '4', '5', '6'],
             datasets: [
               {
                 data: [20, 19, 3, 10, 2, 9],
+                fill: true,
+                backgroundColor: '#ff638424',
+                borderColor: 'rgb(255, 99, 132)',
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+              },
+            ],
+          },
+        },
+        {
+          coin: monero,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
+          chartData: {
+            labels: ['1', '2', '3', '4', '5', '6'],
+            datasets: [
+              {
+                data: [20, 47, 42, 45, 59, 52],
+                fill: true,
+                backgroundColor: '#ff638424',
+                borderColor: 'rgb(255, 99, 132)',
+                cubicInterpolationMode: 'monotone',
+                tension: 0.4,
+              },
+            ],
+          },
+        },
+        {
+          coin: pancakeswap,
+          percentage: faker.datatype.number({
+            min: -50,
+            max: 90,
+          }),
+          chartData: {
+            labels: ['1', '2', '3', '4', '5', '6'],
+            datasets: [
+              {
+                data: [45, 52, 42, 39, 59, 47],
                 fill: true,
                 backgroundColor: '#ff638424',
                 borderColor: 'rgb(255, 99, 132)',
