@@ -5,8 +5,10 @@ import FormSelect from 'components/FormSelect';
 import Section from 'components/Section';
 import { ArrowUp } from 'react-feather';
 import { Column } from 'react-table';
-import { getCryptoLogoImageURL } from 'utils';
+import { formatCurrency, getCryptoLogoImageURL } from 'utils';
 import Table from 'components/Table';
+import { useQueryTransactions } from 'hooks/queries';
+import { Transaction } from 'types';
 
 type TransactionsProps = {};
 
@@ -25,55 +27,25 @@ const transactionFilterData = [
   },
 ];
 
-const data = [
-  {
-    id: '1',
-    coinImageName: 'bitcoin-btc-logo',
-    coinName: 'BTC',
-    transactionType: 'sent',
-    totalAmount: '$35,212,944',
-  },
-  {
-    id: '2',
-    coinImageName: 'litecoin-ltc-logo',
-    coinName: 'LTC',
-    transactionType: 'received',
-    totalAmount: '$35,212,944',
-  },
-  {
-    id: '3',
-    coinImageName: 'ethereum-eth-logo',
-    coinName: 'XRP',
-    transactionType: 'received',
-    totalAmount: '$35,212,944',
-  },
-  {
-    id: '4',
-    coinImageName: 'cardano-ada-logo',
-    coinName: 'ADA',
-    transactionType: 'sent',
-    totalAmount: '$35,212,944',
-    className: 'text-right',
-  },
-];
-
 const Transactions: React.FC<TransactionsProps> = () => {
-  const columns: Column<object>[] = React.useMemo(
+  const { data = [] } = useQueryTransactions();
+
+  const columns: Column<Transaction>[] = React.useMemo(
     () => [
       {
-        accessor: 'coinName',
+        accessor: 'coin',
         Cell: ({ row }) => {
           console.log('🚀 ~ file: Transactions.tsx ~ line 67 ~ row', row);
           return (
             <div className="flex items-center space-x-3">
-              <img className="w-5 h-5" src={getCryptoLogoImageURL(row.original['coinImageName'])} />
-              <div className="text-base">{row.values['coinName']}</div>
+              <img className="w-5 h-5" src={getCryptoLogoImageURL(row.original.coin.imageName)} />
+              <div className="text-base">{row.original.coin.name}</div>
             </div>
           );
         },
       },
       {
-        accessor: 'transactionType',
+        accessor: 'type',
         Cell: ({ value }) => {
           const textClass = cn({
             'text-error': value === 'sent',
@@ -87,9 +59,9 @@ const Transactions: React.FC<TransactionsProps> = () => {
         },
       },
       {
-        accessor: 'totalAmount',
+        accessor: 'amount',
         Cell: ({ value }) => {
-          return <span className="font-bold text-base">{value}</span>;
+          return <span className="font-bold text-base">{formatCurrency(value)}</span>;
         },
       },
     ],

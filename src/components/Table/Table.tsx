@@ -5,7 +5,7 @@ import TableBody from './TableBody';
 import TableHead from './TableHead/TableHead';
 
 type TableProps = {
-  columns: Column<object>[];
+  columns: Column<any>[];
   data: object[];
   containerClassName?: string;
   isZebraStyle?: boolean;

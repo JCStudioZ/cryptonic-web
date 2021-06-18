@@ -1,6 +1,6 @@
-import { fetchBalance, fetchWalletSummary } from 'data';
+import { fetchBalance, fetchTransactions, fetchWalletSummary } from 'data';
 import { useQuery, UseQueryResult } from 'react-query';
-import { Balance, WalletCoin } from 'types';
+import { Balance, Transaction, Wallet } from 'types';
 
 export const useQueryBalance = (): UseQueryResult<Balance> => {
   const result = useQuery<Balance>('balance', fetchBalance, {
@@ -9,8 +9,15 @@ export const useQueryBalance = (): UseQueryResult<Balance> => {
   return result;
 };
 
-export const useQueryWalletSummary = (): UseQueryResult<WalletCoin[]> => {
-  const result = useQuery<WalletCoin[]>('wallet-summary', fetchWalletSummary, {
+export const useQueryWalletSummary = (): UseQueryResult<Wallet> => {
+  const result = useQuery<Wallet>('wallet-summary', fetchWalletSummary, {
+    refetchOnWindowFocus: false,
+  });
+  return result;
+};
+
+export const useQueryTransactions = (): UseQueryResult<Transaction[]> => {
+  const result = useQuery<Transaction[]>('transactions', fetchTransactions, {
     refetchOnWindowFocus: false,
   });
   return result;

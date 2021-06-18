@@ -4,14 +4,14 @@ export const getCryptoLogoImageURL = (name: string) => {
 
 export const formatCurrency = (
   value: number,
-  currencySymbol?: string,
   maximumFractionDigits?: number,
   minimumFractionDigits?: number,
+  currencySymbol?: string,
 ): string => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: currencySymbol || 'USD',
-    maximumFractionDigits,
+    maximumFractionDigits: maximumFractionDigits || 0,
     minimumFractionDigits,
   });
   return formatter.format(value);
