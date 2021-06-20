@@ -46,7 +46,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         {MENU_LIST.map((menuItem) => {
           const { name, url } = menuItem;
           return (
-            <li key={url}>
+            <li key={url} onClick={closeDrawer}>
               <Link to={url}>{name}</Link>
             </li>
           );
@@ -58,7 +58,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="drawer">
       <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} />
-      <div className="px-4 md:container md:mx-auto md:px-0 min-h-screen text-base-content drawer-content">
+      <div className="px-4 md:px-10 text-base-content drawer-content">
         <NavigationBar handleToggleDrawer={handleToggleDrawer} />
         {children}
       </div>
