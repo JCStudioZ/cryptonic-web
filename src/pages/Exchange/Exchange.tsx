@@ -1,13 +1,12 @@
 import * as React from 'react';
+import Generalnformation from './Generalnformation';
 
 type ExchangeProps = {};
 
 const Exchange: React.FC<ExchangeProps> = () => {
   return (
     <>
-      <div className="grid grid-cols-4">
-        <div>Exchange</div>
-      </div>
+      <Generalnformation />
     </>
   );
 };

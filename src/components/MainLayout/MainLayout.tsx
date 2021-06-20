@@ -58,9 +58,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="drawer">
       <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} />
-      <div className="px-4 md:px-10 text-base-content drawer-content">
-        <NavigationBar handleToggleDrawer={handleToggleDrawer} />
-        {children}
+      <div className="drawer-content h-screen">
+        <div className="px-4 md:container md:mx-auto text-base-content">
+          <NavigationBar handleToggleDrawer={handleToggleDrawer} />
+          {children}
+        </div>
       </div>
       <div className="drawer-side lg:hidden">
         <label className="drawer-overlay" onClick={closeDrawer} />

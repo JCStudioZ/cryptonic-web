@@ -1,5 +1,26 @@
+import { ChartOptions } from 'chart.js';
+
 export const getCryptoLogoImageURL = (name: string) => {
   return `https://cryptologos.cc/logos/${name}.svg`;
+};
+
+export const getLineChartOption = (): ChartOptions => {
+  return {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    backgroundColor: 'red',
+    scales: {
+      x: {
+        display: false,
+      },
+      y: {
+        display: false,
+      },
+    },
+  };
 };
 
 export const formatCurrency = (
