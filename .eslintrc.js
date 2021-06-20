@@ -5,12 +5,7 @@ module.exports = {
     node: true,
     amd: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'prettier/@typescript-eslint',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/eslint-recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -22,19 +17,19 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   ignorePatterns: ['__mocks__/', 'node_modules/', 'setupTests.ts'],
   rules: {
-    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+    quotes: ['warn', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     '@typescript-eslint/no-unused-vars': [1, { args: 'none' }],
-    'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
+    'no-unused-vars': ['warn', { vars: 'all', args: 'after-used' }],
     'prettier/prettier': [
       'warn',
       {
         endOfLine: 'auto',
       },
     ],
-    'max-len': ['error', { code: 200, ignoreUrls: true }],
-    'no-confusing-arrow': ['error', { allowParens: false }],
-    'no-mixed-operators': 'error',
-    'no-tabs': ['error', { allowIndentationTabs: true }],
+    'max-len': ['warn', { code: 200, ignoreUrls: true }],
+    'no-confusing-arrow': ['warn', { allowParens: false }],
+    'no-mixed-operators': 'warn',
+    'no-tabs': ['warn', { allowIndentationTabs: true }],
     'no-unexpected-multiline': 'error',
     'react/display-name': 'off',
     'react/prop-types': 'off',
