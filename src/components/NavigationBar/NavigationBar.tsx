@@ -5,10 +5,14 @@ import { Search, Bell, ChevronDown } from 'react-feather';
 import Button from 'components/Button';
 import Dropdown, { DropdownItem } from 'components/Dropdown';
 import FormInput from 'components/FormInput';
+import { Menu } from 'react-feather';
+import { MENU_LIST } from 'routes';
 
-type NavigationBarProps = {};
+type NavigationBarProps = {
+  handleToggleDrawer: () => void;
+};
 
-const NavigationBar: React.FC<NavigationBarProps> = () => {
+const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => {
   const profileDropdownItems: DropdownItem[] = React.useMemo(() => {
     return [
       {
@@ -24,7 +28,7 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
 
   const renderNavigationItem = (text: String, location: string) => {
     return (
-      <Link to={location}>
+      <Link key={location} to={location}>
         <Button isGhost isRounded className="text-base">
           {text}
         </Button>
@@ -51,16 +55,20 @@ const NavigationBar: React.FC<NavigationBarProps> = () => {
   };
 
   return (
-    <div className="navbar mb-6 md:mb-11">
+    <div className="navbar mb-6 px-0 md:px-2 md:mb-11">
+      <div className="flex-none mr-3 lg:hidden">
+        <Button isLink isSquare isGhost size="extra-small" onClick={handleToggleDrawer}>
+          <Menu size={24} />
+        </Button>
+      </div>
       <div className="flex-none xl:mr-10 md:mr-0">
         <span className="text-lg font-bold">Cryptonic</span>
       </div>
       <div className="flex-1 px-2 mx-2">
         <div className="items-stretch hidden lg:flex">
-          {renderNavigationItem('Dashboard', '/')}
-          {renderNavigationItem('Exchange', '/exchange')}
-          {renderNavigationItem('Wallet', '/wallet')}
-          {renderNavigationItem('Market', '/market')}
+          {MENU_LIST.map((menuItem) => {
+            return renderNavigationItem(menuItem.name, menuItem.url);
+          })}
         </div>
       </div>
       <div className="hidden md:flex md:flex-1 lg:flex-none mx-2">
