@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-type ButtonProps = {
+export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
   size?: 'large' | 'medium' | 'small' | 'extra-small';
   isGhost?: boolean;
