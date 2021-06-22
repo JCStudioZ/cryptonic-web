@@ -1,4 +1,3 @@
-import Card from 'components/Card';
 import * as React from 'react';
 import { getCryptoLogoImageURL, getLineChartOption } from 'utils';
 import { ArrowUp } from 'react-feather';

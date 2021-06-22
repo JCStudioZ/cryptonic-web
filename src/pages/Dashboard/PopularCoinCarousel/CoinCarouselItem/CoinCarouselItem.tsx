@@ -1,4 +1,3 @@
-import { ChartOptions } from 'chart.js';
 import Card from 'components/Card';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
