@@ -8,29 +8,51 @@ import Table from 'components/Table';
 type MarketTradesProps = {};
 
 interface MarketTrade {
+  id: string;
   time: string;
   price: number;
+  amount: number;
+  total: number;
 }
 
 const data: MarketTrade[] = [
   {
+    id: '1',
     time: '12:34:44',
     price: 24521.2515,
+    amount: 39512.5167,
+    total: 18692.3699,
   },
   {
-    time: '24:34:11',
+    id: '2',
+    time: '14:34:11',
     price: 24521.2515,
+    amount: 64586.4789,
+    total: 13251.9693,
   },
 ];
 
 const MarketTrades: React.FC<MarketTradesProps> = () => {
-  const columns: Column<MarketTrade>[] = React.useMemo(
-    () => [
+  const columns = React.useMemo(
+    (): Column<MarketTrade>[] => [
       {
+        Header: 'Time',
         accessor: 'time',
       },
       {
+        Header: 'Price',
         accessor: 'price',
+        Cell: ({ value }) => {
+          return <span className="text-success">{value}</span>;
+        },
+      },
+      {
+        Header: 'Amount',
+        accessor: 'amount',
+      },
+      {
+        Header: 'Total',
+        accessor: 'total',
       },
     ],
     [],
@@ -46,13 +68,18 @@ const MarketTrades: React.FC<MarketTradesProps> = () => {
             value: '1',
           },
           {
-            label: 'Completed Order',
+            label: 'Order History',
             value: '2',
+          },
+          {
+            label: 'Order Book',
+            value: '3',
           },
         ]}
         isGhost
         isBordered
         selectSize="small"
+        onChange={() => {}}
       />
     );
   };
@@ -60,7 +87,7 @@ const MarketTrades: React.FC<MarketTradesProps> = () => {
   return (
     <Card isCompact>
       <Section titleText="Market Trades" titleRightElement={renderOrderTypeSelect()}>
-        <Table columns={columns} data={data} isCompact isFullWidth showHeader={false} containerClassName="mt-4" />
+        <Table columns={columns} data={data} isCompact isFullWidth containerClassName="mt-4" />
       </Section>
     </Card>
   );

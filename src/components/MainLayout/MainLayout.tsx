@@ -57,7 +57,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className="drawer">
-      <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} />
+      <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} readOnly />
       <div className="drawer-content h-screen">
         <div className="px-4 md:container lg:container-lg md:mx-auto text-base-content">
           <NavigationBar handleToggleDrawer={handleToggleDrawer} />

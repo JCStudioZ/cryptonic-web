@@ -10,9 +10,9 @@ const TableHead: React.FC<TableHeadProps> = ({ headerGroups }) => {
     <thead>
       {headerGroups.map((headerGroups) => (
         <tr {...headerGroups.getHeaderGroupProps()}>
-          {headerGroups.headers.map((column) => (
-            <th {...column.getHeaderGroupProps}>{column.render('Header')}</th>
-          ))}
+          {headerGroups.headers.map((column) => {
+            return <th {...column.getHeaderProps()}>{column.render('Header')}</th>;
+          })}
         </tr>
       ))}
     </thead>
