@@ -32,12 +32,14 @@ const chartIntervalData: ChartInterval[] = [
   },
 ];
 
-type ChartType = 'price' | 'depth';
+enum ChartType {
+  PRICE = 1,
+  DEPTH = 3,
+}
 
 const ExchangeChart: React.FC<ExchangeChartProps> = () => {
-  const [selectedChartType, setSelectedChartType] = React.useState<ChartType>('price');
+  const [selectedChartType, setSelectedChartType] = React.useState<ChartType>(ChartType.PRICE);
   const [selectedInterval, setSelectedInterval] = React.useState<string>('1');
-  console.log('🚀 ~ file: ExchangeChart.tsx ~ line 42 ~ selectedInterval', selectedInterval);
 
   const onChartTypeButtonClick = (type: ChartType) => {
     return () => {
@@ -71,18 +73,21 @@ const ExchangeChart: React.FC<ExchangeChartProps> = () => {
   };
 
   return (
-    <Card isCompact className="h-full">
+    <Card isCompact>
       <Section titleText="BTC/USDT" titleRightElement={renderIntervalSelect()}>
         <ButtonGroup isFullWidth className="mt-6" value={selectedChartType}>
-          {renderButtonGroupItem('price', 'Price')}
-          {renderButtonGroupItem('depth', 'Depth')}
+          {renderButtonGroupItem(ChartType.PRICE, 'Price')}
+          {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
         </ButtonGroup>
-        <TradingViewChart
-          className="mt-6"
-          id="exchange-trading-view"
-          tradingPairSymbol={'BTCUSDT'}
-          interval={selectedInterval}
-        />
+        <div className="!h-[450px]">
+          <TradingViewChart
+            className="mt-6"
+            id="exchange-trading-view"
+            tradingPairSymbol={'BTCUSDT'}
+            interval={selectedInterval}
+            type={selectedChartType}
+          />
+        </div>
       </Section>
     </Card>
   );

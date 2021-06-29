@@ -8,7 +8,13 @@ type TradingViewChartProps = {
   width?: string;
   height?: string;
   theme?: string;
+  type?: ChartType;
 } & React.HTMLAttributes<HTMLDivElement>;
+
+enum ChartType {
+  PRICE = 1,
+  DEPTH = 3,
+}
 
 const TradingViewChart: React.FC<TradingViewChartProps> = ({
   tradingPairSymbol,
@@ -18,9 +24,9 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
   interval = '1',
   marketName = 'BINANCE',
   theme = 'dark',
+  type = ChartType.PRICE,
   ...rest
 }) => {
-  console.log('🚀 ~ file: TradingViewChart.tsx ~ line 23 ~ id', id);
   return (
     <>
       <div id={id} {...rest}></div>
@@ -35,7 +41,7 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
                 "theme": "${theme}",
                 "container_id": "${id}",
                 "timezone": "Etc/UTC",
-                "style": "1",
+                "style": "${type}",
                 "locale": "en",
                 "enable_publishing": false,
                 "allow_symbol_change": true
