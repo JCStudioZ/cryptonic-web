@@ -4,8 +4,8 @@ import BalanceSummary from './BalanceSummary';
 import ExchangeForm from './ExchangeForm';
 import Transactions from './Transactions';
 import WalletSummary from './WalletSummary';
-import TradingViewChart from './TradingViewChart';
 import PopularCoinCarousel from './PopularCoinCarousel';
+import TradingViewChart from 'components/TradingViewChart';
 
 type DashboardProps = {};
 
@@ -35,7 +35,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
         </Card>
         <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 mt-6 md:mt-0">
           <Card title="Trading View" isCompact className="h-full">
-            <TradingViewChart />
+            <TradingViewChart className="mt-6" id="dashboard-trading-view" tradingPairSymbol={'BTCUSDT'} />
           </Card>
         </div>
       </div>

@@ -1,11 +1,14 @@
-import Button, { ButtonProps } from 'components/Button';
 import * as React from 'react';
+import Button, { ButtonProps } from 'components/Button';
+import ButtonGroupContext from './context';
 
 type ButtonGroupItemProps = {
-  isActive?: boolean;
+  selectedValue: any;
 } & ButtonProps;
 
-export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = ({ isActive, children, ...rest }) => {
+export const ButtonGroupItem: React.FC<ButtonGroupItemProps> = ({ selectedValue, children, ...rest }) => {
+  const { value } = React.useContext(ButtonGroupContext);
+  const isActive = value === selectedValue;
   return (
     <Button variant={isActive ? 'primary' : undefined} {...rest}>
       {children}
