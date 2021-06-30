@@ -24,7 +24,7 @@ const Generalnformation: React.FC<GeneralnformationProps> = () => {
   const chartOption = getLineChartOption();
 
   return (
-    <div className="carousel carousel-center">
+    <div className="carousel carousel-center pb-2 overflow-x-auto">
       <CarouselCardItem
         title="Bitcon"
         content="BTC/USDT"
