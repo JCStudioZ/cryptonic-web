@@ -5,6 +5,7 @@ export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
   size?: 'large' | 'medium' | 'small' | 'extra-small';
   isGhost?: boolean;
+  isOutline?: boolean;
   isLink?: boolean;
   isWide?: boolean;
   isBlock?: boolean;
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   size,
   isGhost,
+  isOutline,
   isLink,
   isWide,
   isBlock,
@@ -47,6 +49,7 @@ const Button: React.FC<ButtonProps> = ({
     'btn-sm': size == 'small',
     'btn-xs': size == 'extra-small',
     'btn-ghost': isGhost,
+    'btn-outline': isOutline,
     'btn-link': isLink,
     'btn-wide': isWide,
     'btn-block': isBlock,

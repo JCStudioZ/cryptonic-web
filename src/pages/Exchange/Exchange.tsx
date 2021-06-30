@@ -1,7 +1,9 @@
+import ExchangeForm from 'components/ExchangeForm';
 import * as React from 'react';
 import ExchangeChart from './ExchangeChart';
 import Generalnformation from './Generalnformation';
 import MarketTrades from './MarketTrades';
+import TradingForm from './TradingForm';
 
 type ExchangeProps = {};
 
@@ -13,8 +15,9 @@ const Exchange: React.FC<ExchangeProps> = () => {
         <ExchangeChart />
         <MarketTrades />
       </div>
-      <div>
-        <p>Exchange Form</p>
+      <div className="grid grid-flow-row auto-rows-max gap-6 pt-6 md:pt-0">
+        <TradingForm />
+        <ExchangeForm />
       </div>
     </div>
   );

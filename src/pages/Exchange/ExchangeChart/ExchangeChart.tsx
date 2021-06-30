@@ -61,25 +61,47 @@ const ExchangeChart: React.FC<ExchangeChartProps> = () => {
 
   const renderIntervalSelect = () => {
     return (
-      <FormSelect
-        value="all"
-        data={chartIntervalData}
-        isGhost
-        isBordered
-        selectSize="small"
-        onChange={onIntervalSelectChange}
-      />
+      <div className="grid grid-flow-col auto-cols-max gap-4">
+        <div className="hidden xl:flex">
+          <div className="grid grid-flow-col gap-4 items-center">
+            <p className="text-base-content-secondary">
+              Open: <span className="text-success font-bold">18432.320</span>
+            </p>
+            <p className="text-base-content-secondary">
+              High: <span className="text-success font-bold">18432.320</span>
+            </p>
+            <p className="text-base-content-secondary">
+              Low: <span className="text-success font-bold">18432.320</span>
+            </p>
+            <p className="text-base-content-secondary">
+              Close: <span className="text-error font-bold">18432.320</span>
+            </p>
+          </div>
+        </div>
+        <ButtonGroup isFullWidth value={selectedChartType} className="hidden md:block w-48">
+          {renderButtonGroupItem(ChartType.PRICE, 'Price')}
+          {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
+        </ButtonGroup>
+        <FormSelect
+          value="all"
+          data={chartIntervalData}
+          isGhost
+          isBordered
+          selectSize="small"
+          onChange={onIntervalSelectChange}
+        />
+      </div>
     );
   };
 
   return (
     <Card isCompact>
       <Section titleText="BTC/USDT" titleRightElement={renderIntervalSelect()}>
-        <ButtonGroup isFullWidth className="mt-6" value={selectedChartType}>
+        <ButtonGroup isFullWidth className="mt-6 md:hidden" value={selectedChartType}>
           {renderButtonGroupItem(ChartType.PRICE, 'Price')}
           {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
         </ButtonGroup>
-        <div className="!h-[450px]">
+        <div className="!h-[450px] md:!h-[350px]">
           <TradingViewChart
             className="mt-6"
             id="exchange-trading-view"

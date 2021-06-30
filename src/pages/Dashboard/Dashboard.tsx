@@ -1,7 +1,7 @@
 import Card from 'components/Card';
 import * as React from 'react';
 import BalanceSummary from './BalanceSummary';
-import ExchangeForm from './ExchangeForm';
+import ExchangeForm from 'components/ExchangeForm';
 import Transactions from './Transactions';
 import WalletSummary from './WalletSummary';
 import PopularCoinCarousel from './PopularCoinCarousel';
@@ -30,9 +30,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 mt-6 md:grid-cols-4 lg:grid-cols-5 md:gap-6">
-        <Card isCompact className="mb-6 h-full md:h-96 md:mb-0 md:col-span-2 lg:col-span-2 xl:col-span-1">
+        <div className="mb-6 h-full md:h-96 md:mb-0 md:col-span-2 lg:col-span-2 xl:col-span-1">
           <ExchangeForm />
-        </Card>
+        </div>
         <div className="h-[500px] md:h-96 md:col-span-2 lg:col-span-3 xl:col-span-4 mt-6 md:mt-0">
           <Card title="Trading View" isCompact className="h-full">
             <TradingViewChart className="mt-6" id="dashboard-trading-view" tradingPairSymbol={'BTCUSDT'} />

@@ -12,7 +12,7 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="bg-base-300" data-theme="forest">
+        <div className="bg-base-300" data-theme="dracula">
           <MainLayout>
             <Switch>
               <Route path="/Exchange">

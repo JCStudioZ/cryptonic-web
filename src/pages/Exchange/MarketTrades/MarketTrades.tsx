@@ -30,6 +30,13 @@ const data: MarketTrade[] = [
     amount: 64586.4789,
     total: 13251.9693,
   },
+  {
+    id: '3',
+    time: '12:34:44',
+    price: 24521.2515,
+    amount: 39512.5167,
+    total: 18692.3699,
+  },
 ];
 
 const MarketTrades: React.FC<MarketTradesProps> = () => {
