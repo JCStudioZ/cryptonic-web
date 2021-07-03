@@ -34,3 +34,27 @@ export interface Transaction {
   type: TransactionType;
   amount: number;
 }
+
+export interface MarketTrade {
+  id: string;
+  time: string;
+  price: number;
+  amount: number;
+  total: number;
+}
+
+export interface TradingPair {
+  name: string;
+  code: string;
+  primaryCoin: Coin;
+  change24h: number;
+  price: number;
+  lastPrice: number;
+  low24h: number;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  marketTrades: MarketTrade[];
+  chartData: any;
+}

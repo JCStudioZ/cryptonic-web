@@ -12,14 +12,14 @@ const settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 5,
+  slidesToShow: 3,
   slidesToScroll: 2,
   responsive: [
     {
       breakpoint: 1280,
       settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         infinite: true,
         dots: true,
       },
@@ -60,24 +60,22 @@ const PopularCoinCarousel: React.FC<PopularCoinCarouselProps> = () => {
   }
 
   return (
-    <div className="pb-8">
-      <Slider {...settings}>
-        {data.map((coinInfo) => {
-          const { chartData, coin, percentage } = coinInfo;
-          return (
-            <CoinCarouselItem
-              key={coin.code}
-              chartData={chartData}
-              coinImageURL={getCryptoLogoImageURL(coin.imageName)}
-              coinCode={coin.code}
-              coinName={coin.name}
-              percentage={percentage}
-              price={coin.price}
-            />
-          );
-        })}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {data.map((coinInfo) => {
+        const { chartData, coin, percentage } = coinInfo;
+        return (
+          <CoinCarouselItem
+            key={coin.code}
+            chartData={chartData}
+            coinImageURL={getCryptoLogoImageURL(coin.imageName)}
+            coinCode={coin.code}
+            coinName={coin.name}
+            percentage={percentage}
+            price={coin.price}
+          />
+        );
+      })}
+    </Slider>
   );
 };
 
