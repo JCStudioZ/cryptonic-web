@@ -17,7 +17,7 @@ const CarouselCardItem: React.FC<CarouselCardItemProps> = ({
   rightElement,
 }) => {
   return (
-    <Card isCompact className="carousel-item mr-4 w-1/2 md:w-1/4 last:mr-0 xl:flex-1">
+    <Card isCompact className="carousel-item mr-4 w-3/5 md:w-1/4 last:mr-0 xl:flex-1">
       <div className="flex">
         {leftElement}
         <div className={contentContainerClass}>
