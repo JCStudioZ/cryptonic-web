@@ -5,7 +5,9 @@ import Section from 'components/Section';
 import { Column } from 'react-table';
 import Table from 'components/Table';
 
-type MarketTradesProps = {};
+type MarketTradesProps = {
+  marketTrades?: MarketTrade[];
+};
 
 interface MarketTrade {
   id: string;
@@ -15,31 +17,7 @@ interface MarketTrade {
   total: number;
 }
 
-const data: MarketTrade[] = [
-  {
-    id: '1',
-    time: '12:34:44',
-    price: 24521.2515,
-    amount: 39512.5167,
-    total: 18692.3699,
-  },
-  {
-    id: '2',
-    time: '14:34:11',
-    price: 24521.2515,
-    amount: 64586.4789,
-    total: 13251.9693,
-  },
-  {
-    id: '3',
-    time: '12:34:44',
-    price: 24521.2515,
-    amount: 39512.5167,
-    total: 18692.3699,
-  },
-];
-
-const MarketTrades: React.FC<MarketTradesProps> = () => {
+const MarketTrades: React.FC<MarketTradesProps> = ({ marketTrades }) => {
   const columns = React.useMemo(
     (): Column<MarketTrade>[] => [
       {
@@ -94,7 +72,9 @@ const MarketTrades: React.FC<MarketTradesProps> = () => {
   return (
     <Card isCompact>
       <Section titleText="Market Trades" titleRightElement={renderOrderTypeSelect()}>
-        <Table columns={columns} data={data} isCompact isFullWidth containerClassName="mt-4" />
+        {marketTrades && (
+          <Table columns={columns} data={marketTrades} isCompact isFullWidth containerClassName="mt-4" />
+        )}
       </Section>
     </Card>
   );
