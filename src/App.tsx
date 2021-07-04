@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import MainLayout from 'components/MainLayout';
 import Dashboard from 'pages/Dashboard';
 import Exchange from 'pages/Exchange';
+import Wallet from 'pages/Wallet';
 import './App.scss';
 
 const queryClient = new QueryClient();
@@ -17,6 +18,9 @@ const App: React.FC = () => {
             <Switch>
               <Route path="/Exchange">
                 <Exchange />
+              </Route>
+              <Route path="/Wallet">
+                <Wallet />
               </Route>
               <Route path="/">
                 <Dashboard />
