@@ -12,7 +12,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = () => {
     return (
       <Button isRounded isGhost className="px-0 btn-addon-right">
         <div className="flex px-2">
-          <img width="20" height="20" src={`https://cryptologos.cc/logos/${coin}-logo.svg`} />
+          <img className="w-5 h-5" src={`https://cryptologos.cc/logos/${coin}-logo.svg`} />
           <div className="flex items-center pl-2">
             <ChevronDown size="22" />
           </div>

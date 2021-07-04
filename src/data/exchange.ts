@@ -43,7 +43,7 @@ export const fetchTradingPairDetails = (): Promise<TradingPair> => {
             max: 60000,
           }),
         },
-        marketTrades: Array(10)
+        marketTrades: Array(4)
           .fill(0)
           .map((): MarketTrade => {
             return {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import MainLayout from 'components/MainLayout';
 import Dashboard from 'pages/Dashboard';
 import Exchange from 'pages/Exchange';
@@ -13,7 +14,7 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div className="bg-base-300" data-theme="dracula">
+        <div className="bg-base-300" data-theme="forest">
           <MainLayout>
             <Switch>
               <Route path="/Exchange">
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           </MainLayout>
         </div>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
