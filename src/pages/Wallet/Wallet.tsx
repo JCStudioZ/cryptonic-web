@@ -1,7 +1,9 @@
+import Button from 'components/Button';
 import Card from 'components/Card';
 import * as React from 'react';
 import { formatCurrency, getCryptoLogoImageURL } from 'utils';
 import CoinWalletItem from './CoinWalletItem';
+import WalletBalance from './WalletBalance';
 
 type WalletProps = {};
 
@@ -44,6 +46,20 @@ const Wallet: React.FC<WalletProps> = () => {
           <p className="text-sm text-base-content-secondary mt-4">Total balance</p>
           <p className="text-xl font-bold mt-2">0.2133214214</p>
           <p className="text-base-content-secondary mt-2 text-base">{formatCurrency(3232.981, 3)}</p>
+          <div className="mt-6">
+            <WalletBalance />
+          </div>
+          <div className="mt-6">
+            <WalletBalance />
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <Button variant="success" isBlock>
+              Withdraw
+            </Button>
+            <Button isOutline isBlock>
+              Deposit
+            </Button>
+          </div>
         </Card>
       </div>
     </div>
