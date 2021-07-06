@@ -71,9 +71,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
     <Card isCompact className="h-full">
       <Section
         titleText="Transaction"
-        titleRightElement={
-          <FormSelect value="all" data={transactionFilterData} isGhost isBordered selectSize="small" />
-        }
+        rightElement={<FormSelect value="all" data={transactionFilterData} isGhost isBordered selectSize="small" />}
       >
         <div className="overflow-y-auto h-full">
           <Table columns={columns} data={data} isCompact isFullWidth showHeader={false} containerClassName="mt-4" />

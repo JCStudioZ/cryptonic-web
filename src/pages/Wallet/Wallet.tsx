@@ -47,13 +47,23 @@ const Wallet: React.FC<WalletProps> = () => {
           <p className="text-xl font-bold mt-2">0.2133214214</p>
           <p className="text-base-content-secondary mt-2 text-base">{formatCurrency(3232.981, 3)}</p>
           <div className="mt-6">
-            <WalletBalance />
+            <WalletBalance
+              title="Exchange Balance"
+              coinAmount={0.231454311}
+              balance={2321.12321233}
+              percentage={24.412}
+            />
           </div>
           <div className="mt-6">
-            <WalletBalance />
+            <WalletBalance
+              title="Assets Balance"
+              coinAmount={0.231454311}
+              balance={2321.12321233}
+              percentage={24.412}
+            />
           </div>
           <div className="grid grid-cols-2 gap-4 mt-6">
-            <Button variant="success" isBlock>
+            <Button variant="primary" isBlock>
               Withdraw
             </Button>
             <Button isOutline isBlock>

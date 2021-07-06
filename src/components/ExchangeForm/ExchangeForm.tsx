@@ -25,7 +25,7 @@ const ExchangeForm: React.FC<ExchangeFormProps> = () => {
     <Card isCompact>
       <Section
         titleText="Exchange"
-        titleRightElement={
+        rightElement={
           <Button isGhost size="small">
             <RefreshCcw size={22} />
           </Button>

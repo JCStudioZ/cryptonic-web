@@ -16,7 +16,7 @@ const WalletSummary: React.FC<WalletSummaryProps> = () => {
   return (
     <Section
       titleText="Wallet"
-      titleRightElement={<p className="text-base-content-secondary">{walletCoinInfoList.length} Currentcies</p>}
+      rightElement={<p className="text-base-content-secondary">{walletCoinInfoList.length} Currentcies</p>}
     >
       <div className="flex mt-8">
         <div className="w-full md:flex justify-between">

@@ -85,7 +85,7 @@ const ExchangeChart: React.FC<ExchangeChartProps> = ({ chartCode }) => {
 
   return (
     <Card isCompact>
-      <Section titleText="BTC/USDT" titleRightElement={renderIntervalSelect()}>
+      <Section titleText="BTC/USDT" rightElement={renderIntervalSelect()}>
         <ButtonGroup isFullWidth className="mt-6 md:hidden" value={selectedChartType}>
           {renderButtonGroupItem(ChartType.PRICE, 'Price')}
           {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
