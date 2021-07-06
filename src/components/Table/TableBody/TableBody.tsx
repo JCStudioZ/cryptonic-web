@@ -14,7 +14,15 @@ const renderRow = (page: Row<object>[], prepareRow: (row: Row<object>) => void) 
     prepareRow(row);
     return (
       <tr {...row.getRowProps()}>
-        {row.cells.map((cell) => {
+        {row.cells.map((cell, index) => {
+          if (index === 0) {
+            return (
+              <th className="align-middle" {...cell.getCellProps()}>
+                {cell.render('Cell')}
+              </th>
+            );
+          }
+
           return (
             <td className="align-middle" width={cell.column.width} {...cell.getCellProps()}>
               {cell.render('Cell')}

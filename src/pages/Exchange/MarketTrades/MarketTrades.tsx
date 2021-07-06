@@ -73,7 +73,9 @@ const MarketTrades: React.FC<MarketTradesProps> = ({ marketTrades }) => {
     <Card isCompact>
       <Section titleText="Market Trades" rightElement={renderOrderTypeSelect()}>
         {marketTrades && (
-          <Table columns={columns} data={marketTrades} isCompact isFullWidth containerClassName="mt-4" />
+          <div className="overflow-x-auto h-full">
+            <Table columns={columns} data={marketTrades} isCompact isFullWidth containerClassName="mt-4" />
+          </div>
         )}
       </Section>
     </Card>

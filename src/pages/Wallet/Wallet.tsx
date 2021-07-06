@@ -2,6 +2,7 @@ import Button from 'components/Button';
 import Card from 'components/Card';
 import * as React from 'react';
 import { formatCurrency, getCryptoLogoImageURL } from 'utils';
+import AssetList from './AssetList';
 import CoinWalletItem from './CoinWalletItem';
 import WalletBalance from './WalletBalance';
 
@@ -70,6 +71,16 @@ const Wallet: React.FC<WalletProps> = () => {
               Deposit
             </Button>
           </div>
+        </Card>
+        <Card
+          isCompact
+          title={
+            <div className="flex">
+              <p className="text-lg font-bold">Assets</p>
+            </div>
+          }
+        >
+          <AssetList />
         </Card>
       </div>
     </div>
