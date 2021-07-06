@@ -88,7 +88,7 @@ const AssetList: React.FC<AssetListProps> = () => {
   return (
     <div>
       <div className="overflow-x-auto h-full">
-        <Table columns={columns} data={data} isCompact isFullWidth isZebraStyle containerClassName="mt-4" />
+        <Table columns={columns} data={data} isCompact isFullWidth containerClassName="mt-4" />
       </div>
     </div>
   );
