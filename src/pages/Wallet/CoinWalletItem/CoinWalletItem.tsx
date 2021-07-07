@@ -37,7 +37,7 @@ const CoinWalletItem: React.FC<CoinWalletItemProps> = ({ coinName, amount, balan
   });
 
   return (
-    <Card isCompact className="carousel-item mr-4 w-3/4 last:mr-0 xl:flex-1">
+    <Card isCompact className="carousel-item mr-4 w-3/4 last:mr-0 md:w-full md:mb-6">
       <div className="flex justify-between items-center">
         <div className="flex items-center">
           <img src={coinLogoUrl} className="mr-2 w-7 h-7" />

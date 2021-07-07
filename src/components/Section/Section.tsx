@@ -28,7 +28,7 @@ const Section: React.FC<SectionProps> = ({
   children,
 }) => {
   const sectionClass = cn({
-    'border border-gray-500 rounded-2xl': bordered,
+    'border border-base-200 rounded-2xl': bordered,
     'p-4': hasPadding,
   });
 
