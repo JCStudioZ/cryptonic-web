@@ -32,12 +32,109 @@ const data: Asset[] = [
     availableBalance: 32123.123,
     market24h: 15,
   },
+  {
+    coin: {
+      code: 'BTC',
+      imageName: 'bitcoin-btc-logo',
+      name: 'Bitcoin',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'ETH',
+      imageName: 'ethereum-eth-logo',
+      name: 'Ethereum',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'BTC',
+      imageName: 'bitcoin-btc-logo',
+      name: 'Bitcoin',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'ETH',
+      imageName: 'ethereum-eth-logo',
+      name: 'Ethereum',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'BTC',
+      imageName: 'bitcoin-btc-logo',
+      name: 'Bitcoin',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'ETH',
+      imageName: 'ethereum-eth-logo',
+      name: 'Ethereum',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'BTC',
+      imageName: 'bitcoin-btc-logo',
+      name: 'Bitcoin',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
+  {
+    coin: {
+      code: 'BTC',
+      imageName: 'bitcoin-btc-logo',
+      name: 'Bitcoin',
+      price: 35000,
+    },
+    onOrders: 32123.123,
+    totalBalance: 32123.123,
+    availableBalance: 32123.123,
+    market24h: 15,
+  },
 ];
 const AssetList: React.FC<AssetListProps> = () => {
   const columns = React.useMemo(
     (): Column<Asset>[] => [
       {
         id: 'coin-logo',
+        width: '20px',
         Cell: ({ row }) => {
           return <img className="min-w-[20px] h-5 mr-4" src={getCryptoLogoImageURL(row.original.coin.imageName)} />;
         },

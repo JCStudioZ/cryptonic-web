@@ -14,7 +14,7 @@ const Wallet: React.FC<WalletProps> = () => {
 
   const renderActionButtons = () => {
     return (
-      <div className="grid grid-cols-2 gap-4 mt-6">
+      <div className="grid grid-cols-2 gap-4 mt-6 md:mt-8">
         <Button variant="primary" isBlock>
           Withdraw
         </Button>
@@ -26,7 +26,7 @@ const Wallet: React.FC<WalletProps> = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-0 md:grid-cols-4 md:gap-4">
+    <div className="grid grid-cols-1 gap-0 md:grid-cols-4 md:gap-6">
       <div className="carousel carousel-center pb-2 overflow-x-auto md:block">
         <CoinWalletItem
           coinName="Bitcoin"
@@ -49,6 +49,13 @@ const Wallet: React.FC<WalletProps> = () => {
           amount={3.7182712}
           balance={4102.211}
         />
+        <CoinWalletItem
+          coinName="Cardano"
+          coinLogoUrl={getCryptoLogoImageURL('cardano-ada-logo')}
+          percentage={30.56}
+          amount={3.7182712}
+          balance={4102.211}
+        />
       </div>
       <div className="grid grid-flow-row auto-rows-max gap-6 mt-6 md:col-span-3 md:mt-0">
         <Card isCompact>
@@ -56,11 +63,11 @@ const Wallet: React.FC<WalletProps> = () => {
             <div className="md:col-span-2 md:pr-5 lg:pr-24">
               <div className="flex">
                 <img className="w-7 h-7 mr-4" src={getCryptoLogoImageURL('ethereum-eth-logo')} />
-                <p className="text-lg font-bold">Ethereum</p>
+                <p className="text-lg font-bold md:text-2xl">Ethereum</p>
               </div>
-              <p className="text-sm text-base-content-secondary mt-4">Total balance</p>
-              <p className="text-xl font-bold mt-2">0.2133214214</p>
-              <p className="text-base-content-secondary mt-2 text-base">{formatCurrency(3232.981, 3)}</p>
+              <p className="text-sm text-base-content-secondary mt-4 md:mt-8">Total balance</p>
+              <p className="text-xl font-bold mt-2 md:mt-4 md:text-4xl">0.2133214214</p>
+              <p className="text-base-content-secondary mt-2 text-base md:text-2xl">{formatCurrency(3232.981, 3)}</p>
               {isMediumBreakPoint && renderActionButtons()}
             </div>
             <div className="md:col-span-3 md:pl-5 lg:pl-24">
@@ -72,7 +79,7 @@ const Wallet: React.FC<WalletProps> = () => {
                   percentage={24.412}
                 />
               </div>
-              <div className="mt-6">
+              <div className="mt-6 md:mt-8">
                 <WalletBalance
                   title="Assets Balance"
                   coinAmount={0.231454311}

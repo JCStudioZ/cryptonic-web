@@ -17,7 +17,7 @@ const renderRow = (page: Row<object>[], prepareRow: (row: Row<object>) => void) 
         {row.cells.map((cell, index) => {
           if (index === 0) {
             return (
-              <th className="align-middle" {...cell.getCellProps()}>
+              <th className="align-middle" style={{ width: cell.column.width }} {...cell.getCellProps()}>
                 {cell.render('Cell')}
               </th>
             );
