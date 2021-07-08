@@ -4,6 +4,7 @@ import cn from 'classnames';
 export interface DropdownItem {
   title: React.ReactElement;
   onClick?: () => void;
+  className?: string;
 }
 
 type DropdownProps = {
@@ -28,7 +29,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', 
     return items.map((item, index) => {
       return (
         <li key={index} onClick={item.onClick}>
-          {item.title}
+          <a className={item.className}>{item.title}</a>
         </li>
       );
     });

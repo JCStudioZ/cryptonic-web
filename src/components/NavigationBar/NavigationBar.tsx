@@ -7,12 +7,16 @@ import Dropdown, { DropdownItem } from 'components/Dropdown';
 import FormInput from 'components/FormInput';
 import { Menu } from 'react-feather';
 import { MENU_LIST } from 'routes';
+import ThemeContext from 'context/theme';
+import cn from 'classnames';
 
 type NavigationBarProps = {
   handleToggleDrawer: () => void;
 };
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => {
+  const { changeTheme, value: theme } = React.useContext(ThemeContext);
+
   const profileDropdownItems: DropdownItem[] = React.useMemo(() => {
     return [
       {
@@ -25,6 +29,29 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
       },
     ];
   }, []);
+
+  const themeDropdownItems = React.useMemo((): DropdownItem[] => {
+    return [
+      {
+        title: <a>🌝 light</a>,
+        onClick: () => {
+          changeTheme('light');
+        },
+        className: cn({
+          active: theme === 'light',
+        }),
+      },
+      {
+        title: <a>🌚 dark</a>,
+        onClick: () => {
+          changeTheme('dracula');
+        },
+        className: cn({
+          active: theme === 'dracula',
+        }),
+      },
+    ];
+  }, [changeTheme, theme]);
 
   const renderNavigationItem = (text: String, location: string) => {
     return (
@@ -45,6 +72,21 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
             <div className="rounded-full w-10 h-10 m-1">
               <img className="w-10 h-10" src={ProfileAvatarImg} />
             </div>
+          </div>
+          <div className="flex items-center pl-2">
+            <ChevronDown size="22" />
+          </div>
+        </Button>
+      </Dropdown>
+    );
+  };
+
+  const renderThemeDropDown = () => {
+    return (
+      <Dropdown items={themeDropdownItems} trigger="hover">
+        <Button isRounded isGhost className="px-0">
+          <div className="avatar">
+            <div className="rounded-full m-1">Theme</div>
           </div>
           <div className="flex items-center pl-2">
             <ChevronDown size="22" />
@@ -85,6 +127,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
         </Button>
       </div>
       <div className="flex-none align-middle">{renderProfileDropDown()}</div>
+      <div className="flex-none align-middle">{renderThemeDropDown()}</div>
     </div>
   );
 };

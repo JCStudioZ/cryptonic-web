@@ -7,14 +7,15 @@ import Dashboard from 'pages/Dashboard';
 import Exchange from 'pages/Exchange';
 import Wallet from 'pages/Wallet';
 import './App.scss';
+import { ThemeProvider } from 'context/theme';
 
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <div className="bg-base-300" data-theme="dracula">
+      <ThemeProvider>
+        <Router>
           <MainLayout>
             <Switch>
               <Route path="/Exchange">
@@ -28,8 +29,8 @@ const App: React.FC = () => {
               </Route>
             </Switch>
           </MainLayout>
-        </div>
-      </Router>
+        </Router>
+      </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

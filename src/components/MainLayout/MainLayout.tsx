@@ -5,10 +5,12 @@ import NavigationBar from 'components/NavigationBar';
 import { MENU_LIST } from 'routes';
 import Button from 'components/Button';
 import { useResponsive } from 'hooks/responsive';
+import ThemeContext from 'context/theme';
 
 type MainLayoutProps = {};
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const { value: theme } = React.useContext(ThemeContext);
   const [isDrawerOpened, setIsDrawerOpened] = React.useState<boolean>(false);
   const { isLargeBreakPoint } = useResponsive();
 
@@ -56,17 +58,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="drawer">
-      <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} readOnly />
-      <div className="drawer-content h-screen">
-        <div className="px-4 pb-4 xl:container md:mx-auto text-base-content">
-          <NavigationBar handleToggleDrawer={handleToggleDrawer} />
-          {children}
+    <div className="bg-base-300" data-theme={theme}>
+      <div className="drawer">
+        <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} readOnly />
+        <div className="drawer-content h-screen">
+          <div className="px-4 pb-4 xl:container md:mx-auto text-base-content">
+            <NavigationBar handleToggleDrawer={handleToggleDrawer} />
+            {children}
+          </div>
         </div>
-      </div>
-      <div className="drawer-side lg:hidden">
-        <label className="drawer-overlay" onClick={closeDrawer} />
-        {renderDrawerMenu()}
+        <div className="drawer-side lg:hidden">
+          <label className="drawer-overlay" onClick={closeDrawer} />
+          {renderDrawerMenu()}
+        </div>
       </div>
     </div>
   );
