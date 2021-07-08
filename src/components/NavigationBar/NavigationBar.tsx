@@ -43,7 +43,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
           <div className="hidden md:flex items-center px-2">John Doe</div>
           <div className="avatar">
             <div className="rounded-full w-10 h-10 m-1">
-              <img width="40" height="40" src={ProfileAvatarImg} />
+              <img className="w-10 h-10" src={ProfileAvatarImg} />
             </div>
           </div>
           <div className="flex items-center pl-2">

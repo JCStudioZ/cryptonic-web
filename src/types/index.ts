@@ -58,3 +58,11 @@ export interface TradingPair {
   marketTrades: MarketTrade[];
   chartData: any;
 }
+
+export interface Asset {
+  coin: Coin;
+  onOrders: number;
+  availableBalance: number;
+  totalBalance: number;
+  market24h: number;
+}

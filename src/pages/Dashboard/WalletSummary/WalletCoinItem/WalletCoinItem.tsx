@@ -12,7 +12,7 @@ const WalletCoinItem: React.FC<WalletCoinItemProps> = ({ imageUrl, percentage, s
   return (
     <div className="flex justify-between mb-2">
       <div className="flex items-start">
-        <img src={imageUrl} width="16px" className="mt-1 mr-2" />
+        <img src={imageUrl} className="mt-1 mr-2 w-4 h-4" />
         <div className="truncate">
           <p className="text-base-content text-base font-bold truncate">{title}</p>
           <p className="text-base text-base-content-secondary truncate">{subTitle}</p>

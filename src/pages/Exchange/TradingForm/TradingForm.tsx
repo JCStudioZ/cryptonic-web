@@ -12,7 +12,7 @@ const TradingForm: React.FC<TradingFormProps> = () => {
     <Card isCompact>
       <Section
         titleText="Bitcoin"
-        titleRightElement={<img width="32" height="32" src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} />}
+        rightElement={<img className="w-8 h-8" src={'https://cryptologos.cc/logos/bitcoin-btc-logo.svg'} />}
       >
         <div>
           <FormInput

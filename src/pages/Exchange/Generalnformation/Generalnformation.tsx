@@ -9,9 +9,10 @@ type GeneralnformationProps = {
   data?: TradingPair;
 };
 
+const chartOption = getLineChartOption();
+
 const Generalnformation: React.FC<GeneralnformationProps> = ({ data }) => {
   const { name = '', change24h, lastPrice = 0, low24h = 0, primaryCoin, chartData } = data || {};
-  const chartOption = getLineChartOption();
 
   return (
     <div className="carousel carousel-center pb-2 overflow-x-auto">

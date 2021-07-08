@@ -26,7 +26,7 @@ const BalanceSummary: React.FC<BalanceSummaryProps> = () => {
   };
 
   return (
-    <Section titleText="Balance" titleRightElement={renderBalancePercentage()}>
+    <Section titleText="Balance" rightElement={renderBalancePercentage()}>
       <div className="mt-4 md:mt-6">
         <h2 className="text-4xl font-bold truncate">{formatCurrency(balance)}</h2>
         <div className="mt-4 md:mt-14">

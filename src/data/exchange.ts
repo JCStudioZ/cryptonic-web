@@ -43,12 +43,12 @@ export const fetchTradingPairDetails = (): Promise<TradingPair> => {
             max: 60000,
           }),
         },
-        marketTrades: Array(10)
+        marketTrades: Array(4)
           .fill(0)
           .map((): MarketTrade => {
             return {
               id: faker.datatype.uuid(),
-              time: dayjs(faker.date.recent()).format('DD/MM/YYYY HH:mm:ss'),
+              time: dayjs(faker.date.recent()).format('HH:mm:ss'),
               price: 24521.2515,
               amount: 64586.4789,
               total: 13251.9693,
