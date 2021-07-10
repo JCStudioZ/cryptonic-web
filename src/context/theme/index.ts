@@ -30,88 +30,88 @@ type ThemeItem = {
 
 export const themeList: ThemeItem[] = [
   {
-    label: 'light',
+    label: '🌝  light',
     value: 'light',
   },
   {
-    label: 'dark',
+    label: '🌚  dark',
     value: 'dark',
   },
   {
-    label: 'dracula',
-    value: 'dracula',
-  },
-  {
-    label: 'cupcake',
+    label: '🧁  cupcake',
     value: 'cupcake',
   },
   {
-    label: 'bumblebee',
+    label: '🐝  bumblebee',
     value: 'bumblebee',
   },
   {
-    label: 'emerald',
+    label: '✳️  Emerald',
     value: 'emerald',
   },
   {
-    label: 'corporate',
+    label: '🏢  Corporate',
     value: 'corporate',
   },
   {
-    label: 'synthwave',
+    label: '🌃  synthwave',
     value: 'synthwave',
   },
   {
-    label: 'retro',
+    label: '👴  retro',
     value: 'retro',
   },
   {
-    label: 'cyberpunk',
+    label: '🤖  cyberpunk',
     value: 'cyberpunk',
   },
   {
-    label: 'valentine',
+    label: '🌸  valentine',
     value: 'valentine',
   },
   {
-    label: 'halloween',
+    label: '🎃  halloween',
     value: 'halloween',
   },
   {
-    label: 'garden',
+    label: '🌷  garden',
     value: 'garden',
   },
   {
-    label: 'forest',
+    label: '🌲  forest',
     value: 'forest',
   },
   {
-    label: 'aqua',
+    label: '🐟  aqua',
     value: 'aqua',
   },
   {
-    label: 'lofi',
+    label: '👓  lofi',
     value: 'lofi',
   },
   {
-    label: 'pastel',
+    label: '🖍 pastel',
     value: 'pastel',
   },
   {
-    label: 'fantasy',
+    label: '🧚‍♀️  fantasy',
     value: 'fantasy',
   },
   {
-    label: 'wireframe',
+    label: '📝  wireframe',
     value: 'wireframe',
   },
   {
-    label: 'black',
+    label: '🏴  black',
     value: 'black',
   },
   {
-    label: 'luxury',
+    label: '💎 luxury',
     value: 'luxury',
+  },
+  {
+    label: '🧛‍♂️ dracula',
+    value: 'dracula',
   },
 ];
 

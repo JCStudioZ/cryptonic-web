@@ -87,7 +87,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
     }
 
     return (
-      <Dropdown items={themeDropdownItems} trigger="hover" className="max-h-64">
+      <Dropdown items={themeDropdownItems} trigger="hover" className="max-h-96">
         <Button isRounded isGhost className="px-0">
           <div className="flex items-center">
             <Aperture size={22} className="mx-1" />
