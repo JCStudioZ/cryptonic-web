@@ -10,7 +10,7 @@ import ThemeContext from 'context/theme';
 type MainLayoutProps = {};
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const { value: theme } = React.useContext(ThemeContext);
+  const { theme } = React.useContext(ThemeContext);
   const [isDrawerOpened, setIsDrawerOpened] = React.useState<boolean>(false);
   const { isLargeBreakPoint } = useResponsive();
 

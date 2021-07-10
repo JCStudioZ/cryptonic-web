@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
+import ThemeConText from 'context/theme';
 
 type TradingViewChartProps = {
   tradingPairSymbol: string;
@@ -7,7 +8,6 @@ type TradingViewChartProps = {
   marketName?: string;
   width?: string;
   height?: string;
-  theme?: string;
   type?: ChartType;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -23,10 +23,44 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
   width = '100%',
   interval = '1',
   marketName = 'BINANCE',
-  theme = 'dark',
   type = ChartType.PRICE,
   ...rest
 }) => {
+  const { theme } = React.useContext(ThemeConText);
+  const [chartTheme, setChartTheme] = React.useState('light');
+
+  React.useEffect(() => {
+    switch (theme) {
+      case 'dark':
+        setChartTheme('dark');
+        break;
+      case 'black':
+        setChartTheme('dark');
+        break;
+      case 'cyberpunk':
+        setChartTheme('dark');
+        break;
+      case 'forest':
+        setChartTheme('dark');
+        break;
+      case 'halloween':
+        setChartTheme('dark');
+        break;
+      case 'luxury':
+        setChartTheme('dark');
+        break;
+      case 'dracula':
+        setChartTheme('dark');
+        break;
+      case 'synthwave':
+        setChartTheme('dark');
+        break;
+      default:
+        setChartTheme('light');
+        break;
+    }
+  }, [theme]);
+
   return (
     <>
       <div id={id} {...rest}></div>
@@ -38,7 +72,7 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
                 "height": "${height}",
                 "symbol": "${marketName}:${tradingPairSymbol}",
                 "interval": "${interval}",
-                "theme": "${theme}",
+                "theme": "${chartTheme}",
                 "container_id": "${id}",
                 "timezone": "Etc/UTC",
                 "style": "${type}",

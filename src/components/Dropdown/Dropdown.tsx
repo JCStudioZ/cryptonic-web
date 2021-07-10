@@ -12,9 +12,10 @@ type DropdownProps = {
   position?: 'end' | 'top' | 'left' | 'right';
   trigger?: 'click' | 'hover';
   isOpened?: boolean;
+  className?: string;
 };
 
-const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', trigger, isOpened }) => {
+const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', trigger, isOpened, className }) => {
   const dropdownClass = cn({
     dropdown: true,
     'dropdown-end': position === 'end',
@@ -38,7 +39,9 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children, position = 'end', 
   return (
     <div className={dropdownClass}>
       {children}
-      <ul className="shadow menu dropdown-content bg-base-100 rounded-box w-52">{renderDropdownItems()}</ul>
+      <ul className={cn('shadow menu dropdown-content bg-base-100 rounded-box w-52 overflow-y-auto', className)}>
+        {renderDropdownItems()}
+      </ul>
     </div>
   );
 };
