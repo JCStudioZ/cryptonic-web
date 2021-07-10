@@ -1,18 +1,21 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileAvatarImg from 'assets/profile-avatar.png';
-import { Search, Bell, ChevronDown } from 'react-feather';
+import { Bell, ChevronDown, Aperture } from 'react-feather';
 import Button from 'components/Button';
 import Dropdown, { DropdownItem } from 'components/Dropdown';
-import FormInput from 'components/FormInput';
 import { Menu } from 'react-feather';
 import { MENU_LIST } from 'routes';
+import ThemeContext, { ThemeValue } from 'context/theme';
+import cn from 'classnames';
 
 type NavigationBarProps = {
   handleToggleDrawer: () => void;
 };
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => {
+  const { changeTheme, theme: theme, themeList } = React.useContext(ThemeContext);
+
   const profileDropdownItems: DropdownItem[] = React.useMemo(() => {
     return [
       {
@@ -25,6 +28,31 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
       },
     ];
   }, []);
+
+  const onThemeChange = React.useCallback(
+    (theme: ThemeValue) => {
+      return () => {
+        changeTheme(theme);
+      };
+    },
+    [changeTheme],
+  );
+
+  const themeDropdownItems = React.useMemo((): DropdownItem[] | null => {
+    if (!themeList) {
+      return null;
+    }
+
+    return themeList?.map(({ label, value }) => {
+      return {
+        title: <a>{label}</a>,
+        onClick: onThemeChange(value),
+        className: cn({
+          active: theme === value,
+        }),
+      };
+    });
+  }, [onThemeChange, theme, themeList]);
 
   const renderNavigationItem = (text: String, location: string) => {
     return (
@@ -40,11 +68,30 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
     return (
       <Dropdown items={profileDropdownItems} trigger="hover">
         <Button isRounded isGhost className="px-0">
-          <div className="hidden md:flex items-center px-2">John Doe</div>
           <div className="avatar">
-            <div className="rounded-full w-10 h-10 m-1">
+            <div className="rounded-full h-6 w-6 md:w-10 md:h-10 m-1">
               <img className="w-10 h-10" src={ProfileAvatarImg} />
             </div>
+          </div>
+          <div className="flex items-center pl-2">
+            <ChevronDown size="22" />
+          </div>
+        </Button>
+      </Dropdown>
+    );
+  };
+
+  const renderThemeDropDown = () => {
+    if (!themeDropdownItems) {
+      return null;
+    }
+
+    return (
+      <Dropdown items={themeDropdownItems} trigger="hover" className="max-h-64">
+        <Button isRounded isGhost className="px-0">
+          <div className="flex items-center">
+            <Aperture size={22} className="mx-1" />
+            <div className="hidden lg:block rounded-full m-1">Change Theme</div>
           </div>
           <div className="flex items-center pl-2">
             <ChevronDown size="22" />
@@ -71,19 +118,13 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
           })}
         </div>
       </div>
-      <div className="hidden md:flex md:flex-1 lg:flex-none mx-2">
-        <FormInput type="text" placeholder="Search" />
-      </div>
-      <div className="flex-none">
-        <Button isCircle isGhost>
-          <Search size={22} />
-        </Button>
-      </div>
+
       <div className="flex-none">
         <Button isCircle isGhost>
           <Bell size={22} />
         </Button>
       </div>
+      <div className="flex-none align-middle mx-2">{renderThemeDropDown()}</div>
       <div className="flex-none align-middle">{renderProfileDropDown()}</div>
     </div>
   );
