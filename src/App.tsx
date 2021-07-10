@@ -6,6 +6,7 @@ import MainLayout from 'components/MainLayout';
 import Dashboard from 'pages/Dashboard';
 import Exchange from 'pages/Exchange';
 import Wallet from 'pages/Wallet';
+import Market from 'pages/Market';
 import './App.scss';
 import { ThemeProvider } from 'context/theme';
 
@@ -23,6 +24,9 @@ const App: React.FC = () => {
               </Route>
               <Route path="/Wallet">
                 <Wallet />
+              </Route>
+              <Route path="/Market">
+                <Market />
               </Route>
               <Route path="/">
                 <Dashboard />
