@@ -39,7 +39,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
           </Card>
         </div>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 mb-4">
         <PopularCoinCarousel />
       </div>
     </>

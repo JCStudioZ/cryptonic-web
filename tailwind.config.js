@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: [require('daisyui')],
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   variants: {
@@ -6,7 +7,6 @@ module.exports = {
       padding: ['first', 'last'],
     },
   },
-  plugins: [require('daisyui')],
   daisyui: {
     styled: true,
     themes: true,
@@ -14,5 +14,12 @@ module.exports = {
     utils: true,
     logs: true,
     rtl: false,
+  },
+  theme: {
+    extend: {
+      maxHeight: {
+        initial: 'initial',
+      },
+    },
   },
 };
