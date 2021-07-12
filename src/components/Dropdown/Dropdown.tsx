@@ -2,7 +2,7 @@ import * as React from 'react';
 import cn from 'classnames';
 
 export interface DropdownItem {
-  title: React.ReactElement;
+  title: React.ReactElement | string;
   onClick?: () => void;
   className?: string;
 }

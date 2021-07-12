@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { X } from 'react-feather';
 import NavigationBar from 'components/NavigationBar';
 import { MENU_LIST } from 'routes';
@@ -11,6 +11,7 @@ import cn from 'classnames';
 type MainLayoutProps = {};
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const { pathname } = useLocation();
   const { theme } = React.useContext(ThemeContext);
   const [isDrawerOpened, setIsDrawerOpened] = React.useState<boolean>(false);
   const { isLargeBreakPoint } = useResponsive();
@@ -53,9 +54,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         </li>
         {MENU_LIST.map((menuItem) => {
           const { name, url } = menuItem;
+          const menuLinkClass = cn({
+            active: pathname === url,
+          });
           return (
             <li key={url} onClick={closeDrawer}>
-              <Link to={url}>{name}</Link>
+              <Link to={url} className={menuLinkClass}>
+                {name}
+              </Link>
             </li>
           );
         })}

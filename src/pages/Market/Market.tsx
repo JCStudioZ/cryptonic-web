@@ -4,7 +4,8 @@ type MarketProps = {};
 
 const Market: React.FC<MarketProps> = () => {
   return (
-    <div className="grid grid-cols-1 gap-0 md:grid-cols-4 md:gap-4">
+    <div className="grid gap-4">
+      <p>Market page</p>
       <p>Market page</p>
     </div>
   );

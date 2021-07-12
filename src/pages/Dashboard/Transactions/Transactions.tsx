@@ -37,7 +37,7 @@ const Transactions: React.FC<TransactionsProps> = () => {
         Cell: ({ row }) => {
           return (
             <div className="flex items-center space-x-3">
-              <img className="w-5 h-5" src={getCryptoLogoImageURL(row.original.coin.imageName)} />
+              <img className="min-w-[20px] h-5" src={getCryptoLogoImageURL(row.original.coin.imageName)} />
               <div className="text-base">{row.original.coin.name}</div>
             </div>
           );
