@@ -1,5 +1,5 @@
+import { PercentRate } from 'components/RateText';
 import * as React from 'react';
-import { ArrowDown, ArrowUp } from 'react-feather';
 
 type WalletCoinItemProps = {
   imageUrl: string;
@@ -20,15 +20,7 @@ const WalletCoinItem: React.FC<WalletCoinItemProps> = ({ imageUrl, percentage, s
       </div>
       <div>
         <p className="text-sm font-bold text-right">
-          {percentage > 0 ? (
-            <span className="text-success">
-              <ArrowUp className="inline-block align-text-bottom" size="18" /> {percentage}%
-            </span>
-          ) : (
-            <span className="text-error">
-              <ArrowDown className="inline-block align-text-bottom" size="18" /> {Math.abs(percentage)}%
-            </span>
-          )}
+          <PercentRate value={percentage} arrow isBold />
         </p>
       </div>
     </div>

@@ -23,11 +23,7 @@ const HighlightedCoin: React.FC<HighlightedCoinProps> = () => {
   const chartOption = getLineChartOption();
 
   return (
-    <Card
-      className="carousel-item carousel-center w-5/6 mr-4"
-      isCompact
-      title={<p className="text-base-content-secondary mb-4 ">Top Gainer</p>}
-    >
+    <Card isCompact title={<p className="text-base-content-secondary mb-4 ">Top Gainer</p>}>
       <div className="flex space-x-4">
         <img src={getCryptoLogoImageURL('bitcoin-btc-logo')} className="min-w-[28px] h-7" />
         <div className="w-full">
