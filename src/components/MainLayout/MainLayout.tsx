@@ -70,7 +70,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="bg-base-300" data-theme={theme}>
+    <div className="bg-base-300 min-h-screen" data-theme={theme}>
       <div className={drawerClass}>
         <input type="checkbox" className="drawer-toggle" checked={isDrawerOpened} readOnly />
         <div className="drawer-content overflow-y-hidden !max-h-initial md:max-h-screen">

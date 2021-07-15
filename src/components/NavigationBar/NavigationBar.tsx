@@ -14,7 +14,7 @@ type NavigationBarProps = {
 };
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => {
-  const { changeTheme, theme: theme, themeList } = React.useContext(ThemeContext);
+  const { changeTheme, theme, themeList } = React.useContext(ThemeContext);
   const { pathname } = useLocation();
 
   const profileDropdownItems: DropdownItem[] = React.useMemo(() => {
@@ -44,9 +44,14 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
       return null;
     }
 
-    return themeList?.map(({ label, value }) => {
+    return themeList?.map(({ icon, label, value }) => {
       return {
-        title: label,
+        title: (
+          <div>
+            <span className="mr-3">{icon}</span>
+            {label}
+          </div>
+        ),
         onClick: onThemeChange(value),
         className: cn({
           active: theme === value,

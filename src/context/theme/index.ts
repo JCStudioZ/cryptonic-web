@@ -24,94 +24,116 @@ export type ThemeValue =
   | 'dracula';
 
 type ThemeItem = {
+  icon: string;
   label: string;
   value: ThemeValue;
 };
 
 export const themeList: ThemeItem[] = [
   {
-    label: '🌝  light',
+    icon: '🌝',
+    label: 'Light',
     value: 'light',
   },
   {
-    label: '🌚  dark',
+    icon: '🌚',
+    label: 'Dark',
     value: 'dark',
   },
   {
-    label: '🧁  cupcake',
+    icon: '🧛‍♂️',
+    label: 'Dracula',
+    value: 'dracula',
+  },
+  {
+    icon: '🧁',
+    label: 'Cupcake',
     value: 'cupcake',
   },
   {
-    label: '🐝  bumblebee',
+    icon: '🐝',
+    label: 'Bumblebee',
     value: 'bumblebee',
   },
   {
-    label: '✳️  Emerald',
+    icon: '✳️',
+    label: 'Emerald',
     value: 'emerald',
   },
   {
-    label: '🏢  Corporate',
+    icon: '🏢',
+    label: 'Corporate',
     value: 'corporate',
   },
   {
-    label: '🌃  synthwave',
+    icon: '🌃',
+    label: 'Synthwave',
     value: 'synthwave',
   },
   {
-    label: '👴  retro',
+    icon: '👴',
+    label: 'Retro',
     value: 'retro',
   },
   {
-    label: '🤖  cyberpunk',
+    icon: '🤖',
+    label: 'Cyberpunk',
     value: 'cyberpunk',
   },
   {
-    label: '🌸  valentine',
+    icon: '🌸',
+    label: 'Valentine',
     value: 'valentine',
   },
   {
-    label: '🎃  halloween',
+    icon: '🎃',
+    label: 'Halloween',
     value: 'halloween',
   },
   {
-    label: '🌷  garden',
+    icon: '🌷',
+    label: 'Harden',
     value: 'garden',
   },
   {
-    label: '🌲  forest',
+    icon: '🌲',
+    label: 'Forest',
     value: 'forest',
   },
   {
-    label: '🐟  aqua',
+    icon: '🐟',
+    label: 'Aqua',
     value: 'aqua',
   },
   {
-    label: '👓  lofi',
+    icon: '👓',
+    label: 'Lofi',
     value: 'lofi',
   },
   {
-    label: '🖍 pastel',
+    icon: '🖍',
+    label: 'Pastel',
     value: 'pastel',
   },
   {
-    label: '🧚‍♀️  fantasy',
+    icon: '🧚‍♀️',
+    label: 'Fantasy',
     value: 'fantasy',
   },
   {
-    label: '📝  wireframe',
+    icon: '📝',
+    label: 'Wireframe',
     value: 'wireframe',
   },
   {
-    label: '🏴  black',
+    icon: '🏴',
+    label: 'Black',
     value: 'black',
   },
   {
-    label: '💎 luxury',
+    icon: '💎',
+    label: 'Lxury',
     value: 'luxury',
-  },
-  {
-    label: '🧛‍♂️ dracula',
-    value: 'dracula',
   },
 ];
 
