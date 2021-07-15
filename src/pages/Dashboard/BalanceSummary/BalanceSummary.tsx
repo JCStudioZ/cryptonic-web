@@ -1,3 +1,4 @@
+import { PercentRate } from 'components/RateText';
 import Section from 'components/Section';
 import { useQueryBalance } from 'hooks/queries';
 import * as React from 'react';
@@ -18,11 +19,7 @@ const BalanceSummary: React.FC<BalanceSummaryProps> = () => {
       return;
     }
 
-    return (
-      <p className="text-success text-base font-bold">
-        <ArrowUp className="inline-block align-text-bottom" size="22" /> {percentage}%
-      </p>
-    );
+    return <PercentRate value={percentage} arrow isBold />;
   };
 
   return (

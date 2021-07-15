@@ -41,6 +41,18 @@ const Card: React.FC<CardProps> = ({
     'image-full': isHeaderImageFull,
   });
 
+  const renderCardTitle = () => {
+    if (!title) {
+      return null;
+    }
+
+    if (typeof title === 'string') {
+      return <h2 className={cn('card-title', titleClassName)}>{title}</h2>;
+    }
+
+    return <div className={className}>{title}</div>;
+  };
+
   return (
     <div className={cn(cardClass, className)}>
       {headerImageUrl && (
@@ -49,7 +61,7 @@ const Card: React.FC<CardProps> = ({
         </figure>
       )}
       <div className={cn('card-body', bodyClassName)}>
-        {title && <h2 className={cn('card-title', titleClassName)}>{title}</h2>}
+        {renderCardTitle()}
         {children}
         {footer && <div className={cn('justify-end card-actions', footerClassName)}>{footer}</div>}
       </div>

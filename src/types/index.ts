@@ -10,12 +10,9 @@ export interface Coin {
   name: string;
   imageName: string;
   price: number;
-}
-
-export interface PopularCoinInfo {
-  coin: Coin;
+  marketCap: number;
+  change24h: number;
   chartData: any;
-  percentage: number;
 }
 
 export interface WalletCoinInfo {

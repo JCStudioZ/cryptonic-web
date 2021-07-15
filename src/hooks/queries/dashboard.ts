@@ -1,6 +1,6 @@
 import { fetchBalance, fetchPopularCoinList, fetchTransactions, fetchWalletSummary } from 'data';
 import { useQuery, UseQueryResult } from 'react-query';
-import { Balance, PopularCoinInfo, Transaction, Wallet } from 'types';
+import { Balance, Coin, Transaction, Wallet } from 'types';
 
 export const useQueryBalance = (): UseQueryResult<Balance> => {
   const result = useQuery<Balance>('balance', fetchBalance, {
@@ -23,8 +23,8 @@ export const useQueryTransactions = (): UseQueryResult<Transaction[]> => {
   return result;
 };
 
-export const useQueryPopularCoins = (): UseQueryResult<PopularCoinInfo[]> => {
-  const result = useQuery<PopularCoinInfo[]>('popular-coins', fetchPopularCoinList, {
+export const useQueryPopularCoins = (): UseQueryResult<Coin[]> => {
+  const result = useQuery<Coin[]>('popular-coins', fetchPopularCoinList, {
     refetchOnWindowFocus: false,
   });
   return result;

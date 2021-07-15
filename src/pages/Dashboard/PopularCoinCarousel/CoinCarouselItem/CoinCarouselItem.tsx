@@ -1,7 +1,7 @@
 import Card from 'components/Card';
+import { PercentRate } from 'components/RateText';
 import * as React from 'react';
 import { Line } from 'react-chartjs-2';
-import { ArrowUp, ArrowDown } from 'react-feather';
 import { formatCurrency, getLineChartOption } from 'utils';
 
 type CoinCarouselItemProps = {
@@ -34,14 +34,7 @@ const CoinCarouselItem: React.FC<CoinCarouselItemProps> = ({
         </div>
         <div className="flex justify-between mt-3 items-center">
           <p className="text-base-content-secondary">{coinName}</p>
-          <p className="text-base font-bold">
-            {percentage < 0 ? (
-              <ArrowDown className="inline-block align-text-bottom text-error" size="22" />
-            ) : (
-              <ArrowUp className="inline-block align-text-bottom text-success" size="22" />
-            )}
-            {Math.abs(percentage)}%
-          </p>
+          <PercentRate value={percentage} arrow isBold />
         </div>
         <div className="flex justify-between mt-3 items-center">
           <p className="text-xl font-bold">{formatCurrency(price)}</p>

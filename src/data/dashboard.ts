@@ -1,64 +1,190 @@
 import * as faker from 'faker';
-import { Balance, Coin, PopularCoinInfo, Transaction, Wallet } from 'types';
+import { Balance, Coin, Transaction, Wallet } from 'types';
 
-const btc: Coin = {
+export const btc: Coin = {
   code: 'BTC',
   imageName: 'bitcoin-btc-logo',
   name: 'Bitcoin',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 10000,
     max: 60000,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
-const ltc: Coin = {
+export const ltc: Coin = {
   code: 'LTC',
   imageName: 'litecoin-ltc-logo',
   name: 'Litecoin',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 50,
     max: 500,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
-const eth: Coin = {
+export const eth: Coin = {
   code: 'ETH',
   imageName: 'ethereum-eth-logo',
   name: 'Ethereum',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 10000,
     max: 60000,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
-const ada: Coin = {
+export const ada: Coin = {
   code: 'ADA',
   imageName: 'cardano-ada-logo',
   name: 'Cardano',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 10000,
     max: 60000,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
-const monero: Coin = {
+export const monero: Coin = {
   code: 'ADA',
   imageName: 'monero-xmr-logo',
   name: 'Monero',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 10000,
     max: 60000,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
-const pancakeswap: Coin = {
+export const pancakeswap: Coin = {
   code: 'CAKE',
   imageName: 'pancakeswap-cake-logo',
   name: 'PancakeSwap',
+  marketCap: faker.datatype.number({
+    min: 500000000,
+    max: 600000000,
+  }),
   price: faker.datatype.number({
     min: 10000,
     max: 60000,
   }),
+  change24h: faker.datatype.number({
+    min: 0,
+    max: 100,
+  }),
+  chartData: {
+    labels: ['1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        data: [12, 19, 3, 8, 4, 15],
+        fill: true,
+        backgroundColor: '#ff638424',
+        borderColor: 'rgb(255, 99, 132)',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+      },
+    ],
+  },
 };
 
 export const fetchBalance = (): Promise<Balance> => {
@@ -161,131 +287,10 @@ export const fetchTransactions = (): Promise<Transaction[]> => {
   });
 };
 
-export const fetchPopularCoinList = (): Promise<PopularCoinInfo[]> => {
+export const fetchPopularCoinList = (): Promise<Coin[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve([
-        {
-          coin: btc,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [12, 19, 3, 8, 4, 15],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-        {
-          coin: eth,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [3, 9, 16, 5, 25, 30],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-        {
-          coin: ltc,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [12, 19, 40, 34, 45, 60],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-        {
-          coin: ada,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [20, 19, 3, 10, 2, 9],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-        {
-          coin: monero,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [20, 47, 42, 45, 59, 52],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-        {
-          coin: pancakeswap,
-          percentage: faker.datatype.number({
-            min: -50,
-            max: 90,
-          }),
-          chartData: {
-            labels: ['1', '2', '3', '4', '5', '6'],
-            datasets: [
-              {
-                data: [45, 52, 42, 39, 59, 47],
-                fill: true,
-                backgroundColor: '#ff638424',
-                borderColor: 'rgb(255, 99, 132)',
-                cubicInterpolationMode: 'monotone',
-                tension: 0.4,
-              },
-            ],
-          },
-        },
-      ]);
+      resolve([btc, eth, ltc, ada, pancakeswap, monero]);
     }, 200);
   });
 };

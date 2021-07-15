@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { formatCurrency, getCryptoLogoImageURL, getLineChartOption } from 'utils';
-import { ArrowUp } from 'react-feather';
 import CarouselCardItem from './CarouselCardItem';
 import { Line } from 'react-chartjs-2';
 import { TradingPair } from 'types';
+import { PercentRate } from 'components/RateText';
 
 type GeneralnformationProps = {
   data?: TradingPair;
@@ -27,12 +27,7 @@ const Generalnformation: React.FC<GeneralnformationProps> = ({ data }) => {
       />
       <CarouselCardItem
         title="24h Change"
-        content={
-          <p className="font-bold text-success text-xl mt-1">
-            <ArrowUp className="inline-block align-text-top" />
-            {change24h}%
-          </p>
-        }
+        content={<PercentRate value={change24h || 0} arrow isBold />}
         contentContainerClass="flex-1"
         rightElement={
           chartData && (

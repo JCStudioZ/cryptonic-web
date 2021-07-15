@@ -45,15 +45,13 @@ const ExchangeChart: React.FC<ExchangeChartProps> = ({ chartCode }) => {
   const [selectedChartType, setSelectedChartType] = React.useState<ChartType>(ChartType.PRICE);
   const [selectedInterval, setSelectedInterval] = React.useState<ChartIntervalValue>('1');
 
-  const onChartTypeButtonClick = (type: ChartType) => {
-    return () => {
-      setSelectedChartType(type);
-    };
+  const onChartTypeChange = (type: ChartType) => {
+    setSelectedChartType(type);
   };
 
   const renderButtonGroupItem = (type: ChartType, buttonText: string) => {
     return (
-      <ButtonGroup.Item selectedValue={type} className="w-1/2" size="small" onClick={onChartTypeButtonClick(type)}>
+      <ButtonGroup.Item selectedValue={type} className="w-1/2" size="small">
         {buttonText}
       </ButtonGroup.Item>
     );
@@ -64,13 +62,19 @@ const ExchangeChart: React.FC<ExchangeChartProps> = ({ chartCode }) => {
     setSelectedInterval(value);
   };
 
+  const renderChartTypeButtonGroup = () => {
+    return (
+      <ButtonGroup isFullWidth value={selectedChartType} onChange={onChartTypeChange}>
+        {renderButtonGroupItem(ChartType.PRICE, 'Price')}
+        {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
+      </ButtonGroup>
+    );
+  };
+
   const renderIntervalSelect = () => {
     return (
       <div className="grid grid-flow-col auto-cols-max gap-4">
-        <ButtonGroup isFullWidth value={selectedChartType} className="hidden md:block w-60">
-          {renderButtonGroupItem(ChartType.PRICE, 'Price')}
-          {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
-        </ButtonGroup>
+        <div className="hidden md:block w-60">{renderChartTypeButtonGroup()}</div>
         <FormSelect
           value="all"
           data={chartIntervalData}
@@ -86,10 +90,7 @@ const ExchangeChart: React.FC<ExchangeChartProps> = ({ chartCode }) => {
   return (
     <Card isCompact>
       <Section titleText="BTC/USDT" rightElement={renderIntervalSelect()}>
-        <ButtonGroup isFullWidth className="mt-6 md:hidden" value={selectedChartType}>
-          {renderButtonGroupItem(ChartType.PRICE, 'Price')}
-          {renderButtonGroupItem(ChartType.DEPTH, 'Depth')}
-        </ButtonGroup>
+        <div className="mt-6 md:hidden">{renderChartTypeButtonGroup()}</div>
         {chartCode && (
           <div className="!h-[450px] md:!h-[350px]">
             <TradingViewChart

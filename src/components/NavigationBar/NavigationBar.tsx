@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ProfileAvatarImg from 'assets/profile-avatar.png';
 import { Bell, ChevronDown, Aperture } from 'react-feather';
 import Button from 'components/Button';
@@ -14,16 +14,17 @@ type NavigationBarProps = {
 };
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => {
-  const { changeTheme, theme: theme, themeList } = React.useContext(ThemeContext);
+  const { changeTheme, theme, themeList } = React.useContext(ThemeContext);
+  const { pathname } = useLocation();
 
   const profileDropdownItems: DropdownItem[] = React.useMemo(() => {
     return [
       {
-        title: <a>See your profile</a>,
+        title: 'See your profile',
         onClick: () => {},
       },
       {
-        title: <a>Logout</a>,
+        title: 'Logout',
         onClick: () => {},
       },
     ];
@@ -43,9 +44,14 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
       return null;
     }
 
-    return themeList?.map(({ label, value }) => {
+    return themeList?.map(({ icon, label, value }) => {
       return {
-        title: <a>{label}</a>,
+        title: (
+          <div>
+            <span className="mr-3">{icon}</span>
+            {label}
+          </div>
+        ),
         onClick: onThemeChange(value),
         className: cn({
           active: theme === value,
@@ -56,8 +62,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ handleToggleDrawer }) => 
 
   const renderNavigationItem = (text: String, location: string) => {
     return (
-      <Link key={location} to={location}>
-        <Button isGhost isRounded className="text-base">
+      <Link key={location} to={location} className="mr-2">
+        <Button isGhost isRounded className="text-base" isActive={pathname === location}>
           {text}
         </Button>
       </Link>

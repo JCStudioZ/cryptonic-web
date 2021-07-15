@@ -1,3 +1,4 @@
+import { PercentRate } from 'components/RateText';
 import Section from 'components/Section';
 import { useResponsive } from 'hooks/responsive';
 import * as React from 'react';
@@ -17,7 +18,7 @@ const WalletBalance: React.FC<WalletBalanceProps> = ({ balance, coinAmount, perc
     <Section
       titleText={title}
       titleClassName="font-medium text-base-content-secondary text-sm"
-      rightElement={<span className="font-bold">{percentage}%</span>}
+      rightElement={<PercentRate value={percentage} arrow isBold />}
       bordered={!isMediumBreakPoint}
       hasPadding={!isMediumBreakPoint}
     >
