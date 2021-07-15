@@ -19,7 +19,7 @@ const HighlightedCoin: React.FC<HighlightedCoinProps> = ({ title, tradingPair })
   } = tradingPair;
 
   return (
-    <Card isCompact title={<p className="text-base-content-secondary mb-4 ">{title}</p>}>
+    <Card isCompact title={<p className="text-base-content-secondary mb-3">{title}</p>}>
       <div className="flex space-x-4">
         <img src={getCryptoLogoImageURL('bitcoin-btc-logo')} className="min-w-[28px] h-7" />
         <div className="w-full">

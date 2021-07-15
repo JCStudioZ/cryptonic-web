@@ -62,16 +62,16 @@ const PopularCoinCarousel: React.FC<PopularCoinCarouselProps> = () => {
   return (
     <Slider {...settings}>
       {data.map((coinInfo) => {
-        const { chartData, coin, percentage } = coinInfo;
+        const { chartData, code, imageName, name, change24h, price } = coinInfo;
         return (
           <CoinCarouselItem
-            key={coin.code}
+            key={code}
             chartData={chartData}
-            coinImageURL={getCryptoLogoImageURL(coin.imageName)}
-            coinCode={coin.code}
-            coinName={coin.name}
-            percentage={percentage}
-            price={coin.price}
+            coinImageURL={getCryptoLogoImageURL(imageName)}
+            coinCode={code}
+            coinName={name}
+            percentage={change24h}
+            price={price}
           />
         );
       })}

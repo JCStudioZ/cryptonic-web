@@ -14,6 +14,7 @@ const ButtonGroupProvider: React.FC = ({ children }) => {
       value={{
         value,
         change,
+        onChange: () => {},
       }}
     >
       {children}

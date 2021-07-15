@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import faker from 'faker';
 import { MarketTrade, TradingPair } from 'types';
+import { btc } from './dashboard';
 
 export const fetchTradingPairDetails = (): Promise<TradingPair> => {
   return new Promise((resolve) => {
@@ -34,15 +35,7 @@ export const fetchTradingPairDetails = (): Promise<TradingPair> => {
           min: 10000,
           max: 100000,
         }),
-        primaryCoin: {
-          code: 'BTC',
-          imageName: 'bitcoin-btc-logo',
-          name: 'Bitcoin',
-          price: faker.datatype.number({
-            min: 10000,
-            max: 60000,
-          }),
-        },
+        primaryCoin: btc,
         marketTrades: Array(4)
           .fill(0)
           .map((): MarketTrade => {

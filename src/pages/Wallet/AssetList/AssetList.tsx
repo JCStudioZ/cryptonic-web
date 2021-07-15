@@ -4,125 +4,76 @@ import cn from 'classnames';
 import { Asset } from 'types';
 import { formatCurrency, getCryptoLogoImageURL } from 'utils';
 import Table from 'components/Table';
+import { ada, btc, eth, ltc, monero, pancakeswap } from 'data';
 
 type AssetListProps = {};
 
 const data: Asset[] = [
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: btc,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'ETH',
-      imageName: 'ethereum-eth-logo',
-      name: 'Ethereum',
-      price: 35000,
-    },
+    coin: eth,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: ltc,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'ETH',
-      imageName: 'ethereum-eth-logo',
-      name: 'Ethereum',
-      price: 35000,
-    },
+    coin: ada,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: monero,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'ETH',
-      imageName: 'ethereum-eth-logo',
-      name: 'Ethereum',
-      price: 35000,
-    },
+    coin: pancakeswap,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: eth,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'ETH',
-      imageName: 'ethereum-eth-logo',
-      name: 'Ethereum',
-      price: 35000,
-    },
+    coin: btc,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: ltc,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,
     market24h: 15,
   },
   {
-    coin: {
-      code: 'BTC',
-      imageName: 'bitcoin-btc-logo',
-      name: 'Bitcoin',
-      price: 35000,
-    },
+    coin: monero,
     onOrders: 32123.123,
     totalBalance: 32123.123,
     availableBalance: 32123.123,

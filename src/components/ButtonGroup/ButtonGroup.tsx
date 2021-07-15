@@ -10,12 +10,16 @@ export type ButtonGroupProps = {
 };
 
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ value, onChange, isFullWidth, className, children }) => {
-  const { change } = React.useContext(ButtonGroupContext);
+  const context = React.useContext(ButtonGroupContext);
+  const { change } = context;
+  const handleOnChange = (value) => {
+    onChange && onChange(value);
+  };
+  context.onChange = handleOnChange;
 
   React.useEffect(() => {
     change(value);
-    onChange && onChange(value);
-  }, [change, onChange, value]);
+  }, [change, value]);
 
   const buttonGroupClass = cn({
     'btn-group': true,
