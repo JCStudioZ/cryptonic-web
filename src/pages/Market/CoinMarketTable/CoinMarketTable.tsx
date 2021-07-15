@@ -32,7 +32,7 @@ const marketTypeOptions = [
 ];
 
 const CoinMarketTable: React.FC<CoinMarketTableProps> = ({ coinList }) => {
-  const [selectedMarketType, setSelectedMarketType] = React.useState('1');
+  const [selectedMarketType] = React.useState('1');
   const { isMediumBreakPoint } = useResponsive();
 
   const columns = React.useMemo(
